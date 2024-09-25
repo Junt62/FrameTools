@@ -63,12 +63,12 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(5, 6);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(474, 349);
+            this.tabControl1.Size = new System.Drawing.Size(478, 355);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -78,7 +78,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(466, 319);
+            this.tabPage1.Size = new System.Drawing.Size(470, 325);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "图片处理";
             // 
@@ -96,7 +96,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(466, 319);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 325);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // groupBox1
@@ -106,7 +106,7 @@
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(462, 104);
+            this.groupBox1.Size = new System.Drawing.Size(466, 104);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "目标选择";
@@ -130,7 +130,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(456, 82);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(460, 82);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // textBox3
@@ -142,7 +142,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(0);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(376, 23);
+            this.textBox3.Size = new System.Drawing.Size(380, 23);
             this.textBox3.TabIndex = 5;
             this.textBox3.TabStop = false;
             this.textBox3.Enter += new System.EventHandler(this.clearFocus);
@@ -156,7 +156,7 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(0);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(376, 23);
+            this.textBox2.Size = new System.Drawing.Size(380, 23);
             this.textBox2.TabIndex = 4;
             this.textBox2.TabStop = false;
             this.textBox2.Enter += new System.EventHandler(this.clearFocus);
@@ -203,7 +203,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(0);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(376, 23);
+            this.textBox1.Size = new System.Drawing.Size(380, 23);
             this.textBox1.TabIndex = 3;
             this.textBox1.TabStop = false;
             this.textBox1.Enter += new System.EventHandler(this.clearFocus);
@@ -215,7 +215,7 @@
             this.groupBox3.Location = new System.Drawing.Point(2, 190);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(462, 127);
+            this.groupBox3.Size = new System.Drawing.Size(466, 133);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "提示信息";
@@ -231,7 +231,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(456, 105);
+            this.textBox4.Size = new System.Drawing.Size(460, 111);
             this.textBox4.TabIndex = 0;
             this.textBox4.TabStop = false;
             this.textBox4.Enter += new System.EventHandler(this.clearFocus);
@@ -243,7 +243,7 @@
             this.groupBox2.Location = new System.Drawing.Point(2, 110);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(462, 76);
+            this.groupBox2.Size = new System.Drawing.Size(466, 76);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "图片操作";
@@ -270,17 +270,17 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(456, 54);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(460, 54);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(229, 1);
+            this.button3.Location = new System.Drawing.Point(231, 1);
             this.button3.Margin = new System.Windows.Forms.Padding(1);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 25);
+            this.button3.Size = new System.Drawing.Size(113, 25);
             this.button3.TabIndex = 2;
             this.button3.Text = "打开备份文件夹";
             this.button3.UseVisualStyleBackColor = true;
@@ -290,10 +290,10 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.AutoSize = true;
-            this.button2.Location = new System.Drawing.Point(115, 1);
+            this.button2.Location = new System.Drawing.Point(116, 1);
             this.button2.Margin = new System.Windows.Forms.Padding(1);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 25);
+            this.button2.Size = new System.Drawing.Size(113, 25);
             this.button2.TabIndex = 1;
             this.button2.Text = "查看重命名预览";
             this.button2.UseVisualStyleBackColor = true;
@@ -306,7 +306,7 @@
             this.button1.Location = new System.Drawing.Point(1, 1);
             this.button1.Margin = new System.Windows.Forms.Padding(1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 25);
+            this.button1.Size = new System.Drawing.Size(113, 25);
             this.button1.TabIndex = 0;
             this.button1.Text = "执行重命名";
             this.button1.UseVisualStyleBackColor = true;
@@ -319,7 +319,7 @@
             this.button4.Location = new System.Drawing.Point(1, 28);
             this.button4.Margin = new System.Windows.Forms.Padding(1);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 25);
+            this.button4.Size = new System.Drawing.Size(113, 25);
             this.button4.TabIndex = 3;
             this.button4.Text = "填充600帧";
             this.button4.UseVisualStyleBackColor = true;
@@ -329,10 +329,10 @@
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.AutoSize = true;
-            this.button5.Location = new System.Drawing.Point(115, 28);
+            this.button5.Location = new System.Drawing.Point(116, 28);
             this.button5.Margin = new System.Windows.Forms.Padding(1);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(112, 25);
+            this.button5.Size = new System.Drawing.Size(113, 25);
             this.button5.TabIndex = 4;
             this.button5.Text = "填充360帧";
             this.button5.UseVisualStyleBackColor = true;
@@ -343,10 +343,10 @@
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button6.AutoSize = true;
             this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Location = new System.Drawing.Point(229, 28);
+            this.button6.Location = new System.Drawing.Point(231, 28);
             this.button6.Margin = new System.Windows.Forms.Padding(1);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(112, 25);
+            this.button6.Size = new System.Drawing.Size(113, 25);
             this.button6.TabIndex = 5;
             this.button6.Text = "提取子文件夹图片";
             this.button6.UseVisualStyleBackColor = true;
@@ -356,10 +356,10 @@
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button7.AutoSize = true;
-            this.button7.Location = new System.Drawing.Point(343, 28);
+            this.button7.Location = new System.Drawing.Point(346, 28);
             this.button7.Margin = new System.Windows.Forms.Padding(1);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(112, 25);
+            this.button7.Size = new System.Drawing.Size(113, 25);
             this.button7.TabIndex = 6;
             this.button7.Text = "删除子文件夹";
             this.button7.UseVisualStyleBackColor = true;
@@ -369,11 +369,11 @@
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(343, 3);
+            this.checkBox1.Location = new System.Drawing.Point(346, 3);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(1);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.checkBox1.Size = new System.Drawing.Size(112, 21);
+            this.checkBox1.Size = new System.Drawing.Size(113, 21);
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Text = "自动执行重命名";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -403,7 +403,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.Padding = new System.Windows.Forms.Padding(3);
             this.Text = "序列帧综合工具@zijun";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("序列帧综合工具")]
+[assembly: AssemblyTitle("序列帧综合工具v2.0.0.0@zijun")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("序列帧综合工具")]
+[assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("Copyright © chengzijun 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      生成号
 //      修订号
 //
-[assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
+//[assembly: AssemblyVersion("2.0.0.0")]
+//[assembly: AssemblyFileVersion("2.0.0.0")]

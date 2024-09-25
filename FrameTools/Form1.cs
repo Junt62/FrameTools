@@ -16,10 +16,6 @@ namespace FrameTools {
 
         private Utils utils;
 
-        public static Version AssemblyVersion {
-            get; private set;
-        }
-
         public TextBox textBoxMessage {
             get {
                 return textBox4;
@@ -30,13 +26,12 @@ namespace FrameTools {
             InitializeComponent();
 
             CenterToScreen();
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)Attribute.GetCustomAttribute(assembly, typeof(AssemblyTitleAttribute));
+            Text = titleAttribute.Title.ToString();
 
             utils = new Utils(this);
 
-            AssemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
-            Text = $"序列帧综合工具v{AssemblyVersion}@zijun";
-
-            //DragDrop += new DragEventHandler(MainForm_DragDrop);
 
             utils.AppendText("请直接拖入含有图片的文件夹");
             utils.AppendTextln("支持png，jpg，bmp");

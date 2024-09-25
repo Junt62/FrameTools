@@ -29,6 +29,8 @@ namespace FrameTools {
         public MainForm() {
             InitializeComponent();
 
+            CenterToScreen();
+
             utils = new Utils(this);
 
             AssemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
@@ -36,7 +38,7 @@ namespace FrameTools {
 
             //DragDrop += new DragEventHandler(MainForm_DragDrop);
 
-            utils.AppendTextln("请直接拖入含有图片的文件夹");
+            utils.AppendText("请直接拖入含有图片的文件夹");
             utils.AppendTextln("支持png，jpg，bmp");
             utils.AppendTextln("关闭软件时，会自动清空备份");
         }
@@ -148,10 +150,16 @@ namespace FrameTools {
             this.mainForm = mainForm;
         }
 
+        public void AppendText(string text) {
+            DateTime currentTime = DateTime.Now;
+            string formattedTime = currentTime.ToString("HH:mm:ss");
+            mainForm.textBoxMessage.AppendText($"【{formattedTime}】{text}");
+        }
+
         public void AppendTextln(string text) {
             DateTime currentTime = DateTime.Now;
             string formattedTime = currentTime.ToString("HH:mm:ss");
-            mainForm.textBoxMessage.AppendText($"【{formattedTime}】{text}\r\n");
+            mainForm.textBoxMessage.AppendText($"\r\n【{formattedTime}】{text}");
         }
     }
 }

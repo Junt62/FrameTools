@@ -16,26 +16,24 @@ namespace FrameTools {
 
         private Utils utils;
 
-        public TextBox textBoxMessage {
+        public Label tint {
             get {
-                return textBox4;
+                return labelTint;
             }
         }
 
         public MainForm() {
             InitializeComponent();
 
-            CenterToScreen();
             Assembly assembly = Assembly.GetExecutingAssembly();
             AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)Attribute.GetCustomAttribute(assembly, typeof(AssemblyTitleAttribute));
             Text = titleAttribute.Title.ToString();
 
             utils = new Utils(this);
 
-
-            utils.AppendText("请直接拖入含有图片的文件夹");
-            utils.AppendTextln("支持png，jpg，bmp");
-            utils.AppendTextln("关闭软件时，会自动清空备份");
+            utils.tint("请直接拖入含有图片的文件夹，程序会自动创建备份");
+            //utils.tint("支持png，jpg，bmp");
+            //utils.tint("关闭软件时，会自动清空备份");
         }
 
         private void clearFocus(object sender, EventArgs e) {
@@ -51,7 +49,7 @@ namespace FrameTools {
         private void MainForm_DragDrop(object sender, DragEventArgs e) {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             if (files.Length > 0) {
-                utils.AppendTextln($"已拖入文件夹：{files[0]}");
+                utils.tint($"已拖入文件夹：{files[0]}");
                 textBox1.Text = files[0];
 
                 if (checkBox1.Checked) {
@@ -62,77 +60,77 @@ namespace FrameTools {
 
         private void button1_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.AppendTextln("执行重命名！");
+                utils.tint("执行重命名！");
             }
             else {
-                utils.AppendTextln("未设置目标路径！");
+                utils.tint("未设置目标路径！");
             }
         }
 
         private void button2_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.AppendTextln("查看重命名预览");
+                utils.tint("查看重命名预览");
             }
             else {
-                utils.AppendTextln("无重命名预览");
+                utils.tint("无重命名预览");
             }
         }
 
         private void button3_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.AppendTextln("打开备份文件夹");
+                utils.tint("打开备份文件夹");
             }
             else {
-                utils.AppendTextln("无备份文件夹");
+                utils.tint("无备份文件夹");
             }
         }
 
         private void button4_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.AppendTextln("填充600帧空白图片");
+                utils.tint("填充600帧空白图片");
             }
             else {
-                utils.AppendTextln("未设置目标路径！");
+                utils.tint("未设置目标路径！");
             }
 
         }
 
         private void button5_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.AppendTextln("填充360帧空白图片");
+                utils.tint("填充360帧空白图片");
             }
             else {
-                utils.AppendTextln("未设置目标路径！");
+                utils.tint("未设置目标路径！");
             }
 
         }
 
         private void button6_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.AppendTextln("提取所有子文件夹图片");
+                utils.tint("提取所有子文件夹图片");
             }
             else {
-                utils.AppendTextln("未设置目标路径！");
+                utils.tint("未设置目标路径！");
             }
 
         }
 
         private void button7_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.AppendTextln("删除所有子文件夹");
+                utils.tint("删除所有子文件夹");
             }
             else {
-                utils.AppendTextln("未设置目标路径！");
+                utils.tint("未设置目标路径！");
             }
 
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e) {
             if (checkBox1.Checked) {
-                utils.AppendTextln("启用自动执行");
+                utils.tint("启用自动执行");
             }
             else {
-                utils.AppendTextln("禁用自动执行");
+                utils.tint("禁用自动执行");
             }
         }
     }
@@ -145,16 +143,16 @@ namespace FrameTools {
             this.mainForm = mainForm;
         }
 
-        public void AppendText(string text) {
+        public void tint(string text) {
             DateTime currentTime = DateTime.Now;
             string formattedTime = currentTime.ToString("HH:mm:ss");
-            mainForm.textBoxMessage.AppendText($"【{formattedTime}】{text}");
+            mainForm.tint.Text = $"[{formattedTime}] 提示：{text}";
         }
 
-        public void AppendTextln(string text) {
-            DateTime currentTime = DateTime.Now;
-            string formattedTime = currentTime.ToString("HH:mm:ss");
-            mainForm.textBoxMessage.AppendText($"\r\n【{formattedTime}】{text}");
-        }
+        //public void SetText(string text) {
+        //    DateTime currentTime = DateTime.Now;
+        //    string formattedTime = currentTime.ToString("HH:mm:ss");
+        //    mainForm.textBoxMessage.AppendText($"\r\n【{formattedTime}】{text}");
+        //}
     }
 }

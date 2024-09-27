@@ -156,10 +156,5 @@ namespace FrameTools {
             mainForm.tint.Text = $"[{formattedTime}]提示: {text}";
         }
 
-        //public void SetText(string text) {
-        //    DateTime currentTime = DateTime.Now;
-        //    string formattedTime = currentTime.ToString("HH:mm:ss");
-        //    mainForm.textBoxMessage.AppendText($"\r\n【{formattedTime}】{text}");
-        //}
     }
 }

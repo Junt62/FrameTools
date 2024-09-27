@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -16,9 +17,9 @@ namespace FrameTools {
 
         private Utils utils;
 
-        public Label tint {
+        public ToolStripStatusLabel tint {
             get {
-                return labelTint;
+                return toolStripStatusLabel1;
             }
         }
 
@@ -32,8 +33,6 @@ namespace FrameTools {
             utils = new Utils(this);
 
             utils.tint("请直接拖入含有图片的文件夹，程序会自动创建备份");
-            //utils.tint("支持png，jpg，bmp");
-            //utils.tint("关闭软件时，会自动清空备份");
         }
 
         private void clearFocus(object sender, EventArgs e) {
@@ -133,6 +132,14 @@ namespace FrameTools {
                 utils.tint("禁用自动执行");
             }
         }
+
+        private void linkLabel1_Click(object sender, EventArgs e) {
+
+            string url = "https://github.com/Junt62/FrameTools";
+
+            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+
+        }
     }
 
     public class Utils {
@@ -146,7 +153,7 @@ namespace FrameTools {
         public void tint(string text) {
             DateTime currentTime = DateTime.Now;
             string formattedTime = currentTime.ToString("HH:mm:ss");
-            mainForm.tint.Text = $"[{formattedTime}] 提示：{text}";
+            mainForm.tint.Text = $"[{formattedTime}]提示: {text}";
         }
 
         //public void SetText(string text) {

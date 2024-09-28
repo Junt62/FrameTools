@@ -1,13 +1,19 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.DataFormats;
 
 namespace FrameTools {
 
+
     public partial class Form1 : Form {
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
 
         private readonly Utils utils;
 
@@ -28,6 +34,8 @@ namespace FrameTools {
             InitializeComponent();
 
             Text = Assembly.GetExecutingAssembly().GetName().Name;
+
+            backupFolderPath = Path.Combine(Directory.GetCurrentDirectory(), BACKUPFOLDERNAME);
 
             utils = new Utils(this);
 
@@ -52,19 +60,8 @@ namespace FrameTools {
             if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop)) {
                 if (e.Data?.GetData(DataFormats.FileDrop) is string[] paths && paths.Length > 0) {
                     path = paths[0];
+
                     folder = Path.GetFileName(paths[0]);
-                    backupFolderPath = Path.Combine(Directory.GetCurrentDirectory(), BACKUPFOLDERNAME);
-
-                    images = [];
-                    images = utils.FindImages();
-
-                    imagesNew = [];
-                    for (int i = 0; i < images.Count; i++) {
-                        string extension = Path.GetExtension(images[i]);
-                        string newName = $"{folder}{(i).ToString().PadLeft(3, '0')}{extension}";
-                        imagesPreview.Add($"{images[i]}  ->  {newName}");
-                        imagesNew.Add(newName);
-                    }
 
                     utils.Tint($"已拖入文件夹：{folder}");
 
@@ -82,14 +79,28 @@ namespace FrameTools {
         private void UpdateTextBox() {
             textBox1.Text = path;
 
+            images = [];
+            images = utils.FindImages();
             textBox2.Text = ($"\"{String.Join("\", \"", images)}\"");
 
+            imagesNew = [];
+            imagesPreview = [];
+            for (int i = 0; i < images.Count; i++) {
+                string extension = Path.GetExtension(images[i]);
+                string newName = $"{folder}{(i).ToString().PadLeft(3, '0')}{extension}";
+                imagesPreview.Add($"{images[i]}  ->  {newName}");
+                imagesNew.Add(newName);
+            }
             textBox3.Text = ($"\"{String.Join("\", \"", imagesNew)}\"");
         }
 
         private void Button1_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.Tint("执行重命名！");
+                utils.RenameImages();
+
+                UpdateTextBox();
+
+                utils.Tint($"执行重命名完成: {folder}！");
             }
             else {
                 utils.Tint("未设置目标路径！");
@@ -106,8 +117,8 @@ namespace FrameTools {
                     Text = "预览",
                     Width = 300,
                     Height = 400,
-                    FormBorderStyle = FormBorderStyle.FixedToolWindow,
                     Owner = this,
+                    FormBorderStyle = FormBorderStyle.FixedToolWindow,
                     StartPosition = FormStartPosition.CenterParent
                 };
                 TextBox textBox = new() {
@@ -120,19 +131,26 @@ namespace FrameTools {
                 };
                 form.Controls.Add(textBox);
                 form.Shown += (sender, e) => textBox.SelectionLength = 0;
-
                 form.ShowDialog();
-
             }
         }
 
         private void Button3_Click(object sender, EventArgs e) {
-            try {
-                Process.Start("explorer.exe", backupFolderPath);
+            if (Directory.Exists(backupFolderPath)) {
+                var explorerProcesses = Process.GetProcessesByName("explorer").Where(p => p.MainWindowTitle.Contains(backupFolderPath));
+
+                if (!explorerProcesses.Any()) {
+                    Process.Start("explorer.exe", backupFolderPath);
+                }
+                else {
+                    var windowHandle = explorerProcesses.First().MainWindowHandle;
+                    SetForegroundWindow(windowHandle);
+                }
+
                 utils.Tint("打开备份文件夹");
             }
-            catch (Exception ex) {
-                Console.WriteLine($"无法打开文件夹: {ex.Message}");
+            else {
+                utils.Tint("无备份文件夹");
             }
         }
 
@@ -220,8 +238,14 @@ namespace FrameTools {
             return sortedImages;
         }
 
-        public void RenameImages(string[] images) {
-
+        public void RenameImages() {
+            int count = 0;
+            foreach (var image in form1.images) {
+                string oldPath = Path.Combine(form1.path, image);
+                string newPath = Path.Combine(form1.path, form1.imagesNew[count]);
+                System.IO.File.Move(oldPath, newPath);
+                count++;
+            }
         }
 
         public void GenerateBackup() {
@@ -232,15 +256,20 @@ namespace FrameTools {
             CopyDirectory(form1.path, path);
 
             static void CopyDirectory(string sourceDir, string destinationDir) {
+                Directory.CreateDirectory(destinationDir);
+
                 foreach (string file in Directory.GetFiles(sourceDir)) {
                     string fileName = Path.GetFileName(file);
                     string destFile = Path.Combine(destinationDir, fileName);
                     System.IO.File.Copy(file, destFile, true);
                 }
+
                 foreach (string directory in Directory.GetDirectories(sourceDir)) {
                     string dirName = Path.GetFileName(directory);
-                    string destDir = Path.Combine(destinationDir, dirName);
-                    CopyDirectory(directory, destDir);
+                    if (dirName != "备份文件夹") {
+                        string destDir = Path.Combine(destinationDir, dirName);
+                        CopyDirectory(directory, destDir);
+                    }
                 }
             }
         }

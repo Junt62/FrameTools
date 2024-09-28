@@ -323,6 +323,7 @@
             // 
             button4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button4.AutoSize = true;
+            button4.Enabled = false;
             button4.Location = new Point(1, 31);
             button4.Margin = new Padding(1);
             button4.Name = "button4";
@@ -336,6 +337,7 @@
             // 
             button5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button5.AutoSize = true;
+            button5.Enabled = false;
             button5.Location = new Point(118, 31);
             button5.Margin = new Padding(1);
             button5.Name = "button5";
@@ -350,6 +352,7 @@
             button6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button6.AutoSize = true;
             button6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button6.Enabled = false;
             button6.Location = new Point(235, 31);
             button6.Margin = new Padding(1);
             button6.Name = "button6";
@@ -363,6 +366,7 @@
             // 
             button7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button7.AutoSize = true;
+            button7.Enabled = false;
             button7.Location = new Point(352, 31);
             button7.Margin = new Padding(1);
             button7.Name = "button7";
@@ -420,15 +424,15 @@
             label7.AutoSize = true;
             label7.Location = new Point(3, 0);
             label7.Name = "label7";
-            label7.Size = new Size(472, 136);
+            label7.Size = new Size(472, 153);
             label7.TabIndex = 0;
-            label7.Text = "更新说明：\r\n\r\n目前该软件仅在github上提供镜像版本\r\n\r\n如果您有更多建议与需求\r\n\r\n请直接在github社区中向该项目发起issue\r\n\r\n";
+            label7.Text = "\r\n更新说明：\r\n\r\n目前该软件仅在github上提供镜像版本\r\n\r\n如果您有更多建议与需求\r\n\r\n请直接在github社区中向该项目发起issue\r\n\r\n";
             label7.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(3, 136);
+            linkLabel1.Location = new Point(3, 153);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(45, 17);
             linkLabel1.TabIndex = 1;
@@ -467,9 +471,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(472, 187);
+            label4.Size = new Size(472, 170);
             label4.TabIndex = 0;
-            label4.Text = "软件说明：\r\n\r\n该软件主要作用于序列帧图片文件相关的整理与修改\r\n\r\n并且提供了数项方便快捷的功能\r\n\r\n使得我们在日常工作中可以免去繁琐的手动整理图片文件的痛苦\r\n\r\n更加专注于我们本身的工作\r\n\r\n至此！";
+            label4.Text = "\r\n该软件主要作用于序列帧图片文件相关的整理与修改\r\n\r\n并且提供了数项方便快捷的功能\r\n\r\n使得我们在日常工作中可以免去繁琐的手动整理图片文件的痛苦\r\n\r\n更加专注于我们本身的工作\r\n\r\n至此！";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // Form1

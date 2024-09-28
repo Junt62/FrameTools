@@ -167,6 +167,7 @@
             groupBox1_tableLayoutPanel.Location = new Point(3, 19);
             groupBox1_tableLayoutPanel.Margin = new Padding(0);
             groupBox1_tableLayoutPanel.Name = "groupBox1_tableLayoutPanel";
+            groupBox1_tableLayoutPanel.Padding = new Padding(0, 0, 2, 0);
             groupBox1_tableLayoutPanel.RowCount = 3;
             groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33333F));
             groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33334F));
@@ -182,7 +183,7 @@
             textBox3.Margin = new Padding(0);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(388, 23);
+            textBox3.Size = new Size(386, 23);
             textBox3.TabIndex = 5;
             textBox3.TabStop = false;
             // 
@@ -194,7 +195,7 @@
             textBox2.Margin = new Padding(0);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(388, 23);
+            textBox2.Size = new Size(386, 23);
             textBox2.TabIndex = 4;
             textBox2.TabStop = false;
             // 
@@ -206,7 +207,7 @@
             textBox1.Margin = new Padding(0);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(388, 23);
+            textBox1.Size = new Size(386, 23);
             textBox1.TabIndex = 3;
             textBox1.TabStop = false;
             // 

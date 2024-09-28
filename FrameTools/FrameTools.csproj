@@ -7,8 +7,8 @@
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
         <ApplicationIcon>icon.ico</ApplicationIcon>
-        <FileVersion>1.0.0.0</FileVersion>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>$(AssemblyVersion)</FileVersion>
+        <AssemblyVersion>1.0.0.1</AssemblyVersion>
         <AssemblyName>序列帧综合工具v$(AssemblyVersion)</AssemblyName>
     </PropertyGroup>
 

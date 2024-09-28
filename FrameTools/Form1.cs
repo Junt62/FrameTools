@@ -1,159 +1,221 @@
-Ôªøusing System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace FrameTools {
 
-    public partial class MainForm : Form {
+    public partial class Form1 : Form {
 
         private Utils utils;
 
-        public ToolStripStatusLabel tint {
-            get {
-                return toolStripStatusLabel1;
-            }
-        }
+        public string path = "";
+        public string folder = "";
 
-        public MainForm() {
+        public static string PREVIEW = "preview.txt";
+        public static string BACKUPFOLDER = "backup";
+        public static string BACKUPSUFFIX = "_bak";
+        public static string[] EXTENSIONS = ["*.png", "*.jpg", "*.jpeg", "*.bmp"];
+
+        public ToolStripStatusLabel Tint => toolStripStatusLabel1;
+
+        public Form1() {
             InitializeComponent();
 
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)Attribute.GetCustomAttribute(assembly, typeof(AssemblyTitleAttribute));
-            Text = titleAttribute.Title.ToString();
+            Text = Assembly.GetExecutingAssembly().GetName().Name;
 
             utils = new Utils(this);
 
-            utils.tint("ËØ∑Áõ¥Êé•ÊãñÂÖ•Âê´ÊúâÂõæÁâáÁöÑÊñá‰ª∂Â§πÔºåÁ®ãÂ∫è‰ºöËá™Âä®ÂàõÂª∫Â§á‰ªΩ");
+            utils.Tint("«Î÷±Ω”Õœ»Î∫¨”–Õº∆¨µƒŒƒº˛º–£¨≥Ã–Úª·◊‘∂Ø¥¥Ω®±∏∑›");
         }
 
-        private void clearFocus(object sender, EventArgs e) {
-            ActiveControl = null;
-        }
+        private void Form1_DragEnter(object sender, DragEventArgs e) {
+            if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop)) {
 
-        private void MainForm_DragEnter(object sender, DragEventArgs e) {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop)) {
-                e.Effect = DragDropEffects.Copy;
+                string[]? paths = e.Data.GetData(DataFormats.FileDrop) as string[];
+
+                if (paths != null && paths.All(path => Directory.Exists(path))) {
+                    e.Effect = DragDropEffects.Copy;
+                }
+                else {
+                    e.Effect = DragDropEffects.None;
+                }
+            }
+            else {
+                e.Effect = DragDropEffects.None;
             }
         }
 
-        private void MainForm_DragDrop(object sender, DragEventArgs e) {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            if (files.Length > 0) {
-                utils.tint($"Â∑≤ÊãñÂÖ•Êñá‰ª∂Â§πÔºö{files[0]}");
-                textBox1.Text = files[0];
+        private void Form1_DragDrop(object sender, DragEventArgs e) {
+            if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop)) {
 
-                if (checkBox1.Checked) {
-                    button1_Click(sender, e);
+                string[]? paths = e.Data?.GetData(DataFormats.FileDrop) as string[];
+
+                if (paths != null && paths.Length > 0) {
+
+                    path = paths[0];
+
+                    folder = Path.GetFileName(paths[0]);
+
+                    updateTextBox1();
+
+                    updateTextBox2();
+
+                    if (checkBox1.Checked) {
+                        button1_Click(sender, e);
+                    }
                 }
             }
         }
 
+        private void updateTextBox1() {
+            textBox1.Text = path;
+            utils.Tint($"“—Õœ»ÎŒƒº˛º–£∫{folder}");
+        }
+
+        private void updateTextBox2() {
+            var files = new List<string>();
+
+            foreach (var extension in EXTENSIONS) {
+                files.AddRange(Directory.GetFiles(path, extension, SearchOption.TopDirectoryOnly));
+            }
+
+            textBox2.Text = String.Join(" ", files);
+        }
+
+        private void updateTextBox3() {
+
+        }
+
         private void button1_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.tint("ÊâßË°åÈáçÂëΩÂêçÔºÅ");
+                utils.Tint("÷¥––÷ÿ√¸√˚£°");
             }
             else {
-                utils.tint("Êú™ËÆæÁΩÆÁõÆÊ†áË∑ØÂæÑÔºÅ");
+                utils.Tint("Œ¥…Ë÷√ƒø±Í¬∑æ∂£°");
             }
         }
 
         private void button2_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.tint("Êü•ÁúãÈáçÂëΩÂêçÈ¢ÑËßà");
+                utils.Tint("≤Èø¥÷ÿ√¸√˚‘§¿¿");
             }
             else {
-                utils.tint("Êó†ÈáçÂëΩÂêçÈ¢ÑËßà");
+                utils.Tint("Œﬁ÷ÿ√¸√˚‘§¿¿");
             }
         }
 
         private void button3_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.tint("ÊâìÂºÄÂ§á‰ªΩÊñá‰ª∂Â§π");
+                utils.Tint("¥Úø™±∏∑›Œƒº˛º–");
             }
             else {
-                utils.tint("Êó†Â§á‰ªΩÊñá‰ª∂Â§π");
+                utils.Tint("Œﬁ±∏∑›Œƒº˛º–");
             }
         }
 
         private void button4_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.tint("Â°´ÂÖÖ600Â∏ßÁ©∫ÁôΩÂõæÁâá");
+                utils.Tint("ÃÓ≥‰600÷°ø’∞◊Õº∆¨");
             }
             else {
-                utils.tint("Êú™ËÆæÁΩÆÁõÆÊ†áË∑ØÂæÑÔºÅ");
+                utils.Tint("Œ¥…Ë÷√ƒø±Í¬∑æ∂£°");
             }
-
         }
 
         private void button5_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.tint("Â°´ÂÖÖ360Â∏ßÁ©∫ÁôΩÂõæÁâá");
+                utils.Tint("ÃÓ≥‰360÷°ø’∞◊Õº∆¨");
             }
             else {
-                utils.tint("Êú™ËÆæÁΩÆÁõÆÊ†áË∑ØÂæÑÔºÅ");
+                utils.Tint("Œ¥…Ë÷√ƒø±Í¬∑æ∂£°");
             }
-
         }
 
         private void button6_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.tint("ÊèêÂèñÊâÄÊúâÂ≠êÊñá‰ª∂Â§πÂõæÁâá");
+                utils.Tint("Ã·»°À˘”–◊”Œƒº˛º–Õº∆¨");
             }
             else {
-                utils.tint("Êú™ËÆæÁΩÆÁõÆÊ†áË∑ØÂæÑÔºÅ");
+                utils.Tint("Œ¥…Ë÷√ƒø±Í¬∑æ∂£°");
             }
-
         }
 
         private void button7_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.tint("Âà†Èô§ÊâÄÊúâÂ≠êÊñá‰ª∂Â§π");
+                utils.Tint("…æ≥˝À˘”–◊”Œƒº˛º–");
             }
             else {
-                utils.tint("Êú™ËÆæÁΩÆÁõÆÊ†áË∑ØÂæÑÔºÅ");
+                utils.Tint("Œ¥…Ë÷√ƒø±Í¬∑æ∂£°");
             }
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e) {
             if (checkBox1.Checked) {
-                utils.tint("ÂêØÁî®Ëá™Âä®ÊâßË°å");
+                utils.Tint("∆Ù”√◊‘∂Ø÷¥––");
             }
             else {
-                utils.tint("Á¶ÅÁî®Ëá™Âä®ÊâßË°å");
+                utils.Tint("Ω˚”√◊‘∂Ø÷¥––");
             }
         }
 
-        private void linkLabel1_Click(object sender, EventArgs e) {
-
-            string url = "https://github.com/Junt62/FrameTools";
-
-            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
-
-        }
     }
 
     public class Utils {
+        private Form1 form1;
 
-        private MainForm mainForm;
-
-        public Utils(MainForm mainForm) {
-            this.mainForm = mainForm;
+        public Utils(Form1 form1) {
+            this.form1 = form1;
         }
 
-        public void tint(string text) {
+        public void Tint(string text) {
             DateTime currentTime = DateTime.Now;
             string formattedTime = currentTime.ToString("HH:mm:ss");
-            mainForm.tint.Text = $"[{formattedTime}]ÊèêÁ§∫: {text}";
+
+            if (text.Length > 30) {
+                form1.Tint.Text = $"[{formattedTime}]Ã· æ: {text.Substring(0, 30) + "..."}";
+            }
+            else {
+                form1.Tint.Text = $"[{formattedTime}]Ã· æ: {text}";
+            }
+        }
+
+        public string[] SortImages(string[] images) {
+            return [""];
+        }
+
+        public string[] FindImages(string[] images) {
+            return [""];
+        }
+
+        public void RenameImages(string[] images) {
+
+        }
+
+        public void GeneratePreview(string[] images) {
+
+        }
+
+        public void GenerateBackup(string[] images) {
+
+        }
+
+        public void GenerateEmptyImages(string[] images) {
+
+        }
+
+        public void RemoveEmptyImages(string[] images) {
+
+        }
+
+        public void FillImages(string[] images) {
+
+        }
+
+        public void ExtractSubFolders(string[] images) {
+
+        }
+
+        public void RemoveSubFolders(string[] images) {
+
         }
 
     }

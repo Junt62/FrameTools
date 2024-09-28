@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameTools", "FrameTools\FrameTools.csproj", "{BE372ADE-627A-44B1-9062-6A1D0555BE97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameTools", "FrameTools\FrameTools.csproj", "{C5D145DF-3A33-4EB8-A627-119B6C527B9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BE372ADE-627A-44B1-9062-6A1D0555BE97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE372ADE-627A-44B1-9062-6A1D0555BE97}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE372ADE-627A-44B1-9062-6A1D0555BE97}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE372ADE-627A-44B1-9062-6A1D0555BE97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D145DF-3A33-4EB8-A627-119B6C527B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D145DF-3A33-4EB8-A627-119B6C527B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D145DF-3A33-4EB8-A627-119B6C527B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D145DF-3A33-4EB8-A627-119B6C527B9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

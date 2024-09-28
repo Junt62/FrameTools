@@ -82,8 +82,8 @@
             // toolStripStatusLabel1
             // 
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(497, 17);
-            toolStripStatusLabel1.Text = "提示:122222228882222222222222222222222222222222222222222222222222222222";
+            toolStripStatusLabel1.Size = new Size(35, 17);
+            toolStripStatusLabel1.Text = "提示:";
             toolStripStatusLabel1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // mainForm_tableLayoutPanel
@@ -291,7 +291,7 @@
             button3.TabIndex = 2;
             button3.Text = "打开备份文件夹";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            button3.Click += Button3_Click;
             // 
             // button2
             // 
@@ -304,7 +304,7 @@
             button2.TabIndex = 1;
             button2.Text = "查看重命名预览";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += Button2_Click;
             // 
             // button1
             // 
@@ -317,7 +317,7 @@
             button1.TabIndex = 0;
             button1.Text = "执行重命名";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += Button1_Click;
             // 
             // button4
             // 
@@ -330,7 +330,7 @@
             button4.TabIndex = 3;
             button4.Text = "填充600帧";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            button4.Click += Button4_Click;
             // 
             // button5
             // 
@@ -343,7 +343,7 @@
             button5.TabIndex = 4;
             button5.Text = "填充360帧";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            button5.Click += Button5_Click;
             // 
             // button6
             // 
@@ -357,7 +357,7 @@
             button6.TabIndex = 5;
             button6.Text = "提取子文件夹图片";
             button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            button6.Click += Button6_Click;
             // 
             // button7
             // 
@@ -370,7 +370,7 @@
             button7.TabIndex = 6;
             button7.Text = "删除子文件夹";
             button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            button7.Click += Button7_Click;
             // 
             // checkBox1
             // 
@@ -384,7 +384,7 @@
             checkBox1.TabIndex = 7;
             checkBox1.Text = "自动执行重命名";
             checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            checkBox1.CheckedChanged += CheckBox1_CheckedChanged;
             // 
             // tabPage2
             // 

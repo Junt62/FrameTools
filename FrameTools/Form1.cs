@@ -1,19 +1,26 @@
+using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.DataFormats;
 
 namespace FrameTools {
 
     public partial class Form1 : Form {
 
-        private Utils utils;
+        private readonly Utils utils;
 
         public string path = "";
         public string folder = "";
+        public string backupFolderPath = "";
+        public List<string> images = [];
+        public List<string> imagesNew = [];
+        public List<string> imagesPreview = [];
 
-        public static string PREVIEW = "preview.txt";
-        public static string BACKUPFOLDER = "backup";
-        public static string BACKUPSUFFIX = "_bak";
-        public static string[] EXTENSIONS = ["*.png", "*.jpg", "*.jpeg", "*.bmp"];
+        public readonly string BACKUPFOLDERNAME = "备份文件夹";
+        public readonly string BACKUPFOLDERSUFFIX = "_备份";
+        public readonly string[] EXTENSIONS = ["*.png", "*.jpg", "*.jpeg", "*.bmp"];
 
         public ToolStripStatusLabel Tint => toolStripStatusLabel1;
 
@@ -24,15 +31,12 @@ namespace FrameTools {
 
             utils = new Utils(this);
 
-            utils.Tint("请直接拖入含有图片的文件夹，程序会自动创建备份");
+            utils.Tint("请直接拖入含有图片的文件夹");
         }
 
         private void Form1_DragEnter(object sender, DragEventArgs e) {
             if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop)) {
-
-                string[]? paths = e.Data.GetData(DataFormats.FileDrop) as string[];
-
-                if (paths != null && paths.All(path => Directory.Exists(path))) {
+                if (e.Data.GetData(DataFormats.FileDrop) is string[] paths && paths.All(path => Directory.Exists(path))) {
                     e.Effect = DragDropEffects.Copy;
                 }
                 else {
@@ -46,46 +50,44 @@ namespace FrameTools {
 
         private void Form1_DragDrop(object sender, DragEventArgs e) {
             if (e.Data != null && e.Data.GetDataPresent(DataFormats.FileDrop)) {
-
-                string[]? paths = e.Data?.GetData(DataFormats.FileDrop) as string[];
-
-                if (paths != null && paths.Length > 0) {
-
+                if (e.Data?.GetData(DataFormats.FileDrop) is string[] paths && paths.Length > 0) {
                     path = paths[0];
-
                     folder = Path.GetFileName(paths[0]);
+                    backupFolderPath = Path.Combine(Directory.GetCurrentDirectory(), BACKUPFOLDERNAME);
 
-                    updateTextBox1();
+                    images = [];
+                    images = utils.FindImages();
 
-                    updateTextBox2();
+                    imagesNew = [];
+                    for (int i = 0; i < images.Count; i++) {
+                        string extension = Path.GetExtension(images[i]);
+                        string newName = $"{folder}{(i).ToString().PadLeft(3, '0')}{extension}";
+                        imagesPreview.Add($"{images[i]}  ->  {newName}");
+                        imagesNew.Add(newName);
+                    }
+
+                    utils.Tint($"已拖入文件夹：{folder}");
+
+                    UpdateTextBox();
+
+                    utils.GenerateBackup();
 
                     if (checkBox1.Checked) {
-                        button1_Click(sender, e);
+                        Button1_Click(sender, e);
                     }
                 }
             }
         }
 
-        private void updateTextBox1() {
+        private void UpdateTextBox() {
             textBox1.Text = path;
-            utils.Tint($"已拖入文件夹：{folder}");
+
+            textBox2.Text = ($"\"{String.Join("\", \"", images)}\"");
+
+            textBox3.Text = ($"\"{String.Join("\", \"", imagesNew)}\"");
         }
 
-        private void updateTextBox2() {
-            var files = new List<string>();
-
-            foreach (var extension in EXTENSIONS) {
-                files.AddRange(Directory.GetFiles(path, extension, SearchOption.TopDirectoryOnly));
-            }
-
-            textBox2.Text = String.Join(" ", files);
-        }
-
-        private void updateTextBox3() {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
+        private void Button1_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
                 utils.Tint("执行重命名！");
             }
@@ -94,25 +96,47 @@ namespace FrameTools {
             }
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            if (textBox1.Text != "") {
-                utils.Tint("查看重命名预览");
-            }
-            else {
+        private void Button2_Click(object sender, EventArgs e) {
+            if (textBox3.Text == "" || textBox3.Text == "\"\"") {
                 utils.Tint("无重命名预览");
             }
+            else {
+                utils.Tint("查看重命名预览");
+                Form form = new() {
+                    Text = "预览",
+                    Width = 300,
+                    Height = 400,
+                    FormBorderStyle = FormBorderStyle.FixedToolWindow,
+                    Owner = this,
+                    StartPosition = FormStartPosition.CenterParent
+                };
+                TextBox textBox = new() {
+                    ReadOnly = true,
+                    Multiline = true,
+                    Dock = DockStyle.Fill,
+                    BackColor = Color.White,
+                    ScrollBars = ScrollBars.Vertical,
+                    Text = $"{String.Join(Environment.NewLine, imagesPreview)}",
+                };
+                form.Controls.Add(textBox);
+                form.Shown += (sender, e) => textBox.SelectionLength = 0;
+
+                form.ShowDialog();
+
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e) {
-            if (textBox1.Text != "") {
+        private void Button3_Click(object sender, EventArgs e) {
+            try {
+                Process.Start("explorer.exe", backupFolderPath);
                 utils.Tint("打开备份文件夹");
             }
-            else {
-                utils.Tint("无备份文件夹");
+            catch (Exception ex) {
+                Console.WriteLine($"无法打开文件夹: {ex.Message}");
             }
         }
 
-        private void button4_Click(object sender, EventArgs e) {
+        private void Button4_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
                 utils.Tint("填充600帧空白图片");
             }
@@ -121,7 +145,7 @@ namespace FrameTools {
             }
         }
 
-        private void button5_Click(object sender, EventArgs e) {
+        private void Button5_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
                 utils.Tint("填充360帧空白图片");
             }
@@ -130,7 +154,7 @@ namespace FrameTools {
             }
         }
 
-        private void button6_Click(object sender, EventArgs e) {
+        private void Button6_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
                 utils.Tint("提取所有子文件夹图片");
             }
@@ -139,7 +163,7 @@ namespace FrameTools {
             }
         }
 
-        private void button7_Click(object sender, EventArgs e) {
+        private void Button7_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
                 utils.Tint("删除所有子文件夹");
             }
@@ -148,7 +172,7 @@ namespace FrameTools {
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e) {
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e) {
             if (checkBox1.Checked) {
                 utils.Tint("启用自动执行");
             }
@@ -159,12 +183,8 @@ namespace FrameTools {
 
     }
 
-    public class Utils {
-        private Form1 form1;
-
-        public Utils(Form1 form1) {
-            this.form1 = form1;
-        }
+    public class Utils(Form1 form1) {
+        private readonly Form1 form1 = form1;
 
         public void Tint(string text) {
             DateTime currentTime = DateTime.Now;
@@ -178,24 +198,51 @@ namespace FrameTools {
             }
         }
 
-        public string[] SortImages(string[] images) {
-            return [""];
-        }
+        /// <returns>当前文件夹下所有图片的文件名，使用数字最小优先排序</returns>
+        public List<string> FindImages() {
+            var paths = new List<string>();
+            foreach (var extension in form1.EXTENSIONS) {
+                paths.AddRange(Directory.GetFiles(form1.path, extension, SearchOption.TopDirectoryOnly));
+            }
 
-        public string[] FindImages(string[] images) {
-            return [""];
+            var images = new List<string>();
+            foreach (var path in paths) {
+                images.Add(Path.GetFileName(path));
+            }
+
+            static int ExtractNumber(string fileName) {
+                var numberString = new string(fileName.Where(char.IsDigit).ToArray());
+                return int.TryParse(numberString, out int number) ? number : int.MaxValue;
+            }
+
+            var sortedImages = images.OrderBy(f => ExtractNumber(Path.GetFileName(f))).ToList();
+
+            return sortedImages;
         }
 
         public void RenameImages(string[] images) {
 
         }
 
-        public void GeneratePreview(string[] images) {
+        public void GenerateBackup() {
+            string path = Path.Combine(form1.backupFolderPath, form1.folder + form1.BACKUPFOLDERSUFFIX);
 
-        }
+            Directory.CreateDirectory(path);
 
-        public void GenerateBackup(string[] images) {
+            CopyDirectory(form1.path, path);
 
+            static void CopyDirectory(string sourceDir, string destinationDir) {
+                foreach (string file in Directory.GetFiles(sourceDir)) {
+                    string fileName = Path.GetFileName(file);
+                    string destFile = Path.Combine(destinationDir, fileName);
+                    System.IO.File.Copy(file, destFile, true);
+                }
+                foreach (string directory in Directory.GetDirectories(sourceDir)) {
+                    string dirName = Path.GetFileName(directory);
+                    string destDir = Path.Combine(destinationDir, dirName);
+                    CopyDirectory(directory, destDir);
+                }
+            }
         }
 
         public void GenerateEmptyImages(string[] images) {

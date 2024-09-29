@@ -7,9 +7,10 @@
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
         <ApplicationIcon>icon.ico</ApplicationIcon>
-        <FileVersion>$(AssemblyVersion)</FileVersion>
         <AssemblyVersion>1.0.0.1</AssemblyVersion>
         <AssemblyName>序列帧综合工具v$(AssemblyVersion)</AssemblyName>
+        <Version>$(AssemblyVersion)</Version>
+        <FileVersion>$(AssemblyVersion)</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

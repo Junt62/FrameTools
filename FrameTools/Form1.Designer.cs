@@ -352,7 +352,6 @@
             // 
             button6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button6.AutoSize = true;
-            button6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button6.Enabled = false;
             button6.Location = new Point(235, 31);
             button6.Margin = new Padding(1);
@@ -485,6 +484,8 @@
             ClientSize = new Size(504, 261);
             Controls.Add(statusStrip1);
             Controls.Add(mainForm_tableLayoutPanel);
+            Font = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MaximizeBox = false;

@@ -26,7 +26,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
-            mainForm_tableLayoutPanel = new TableLayoutPanel();
+            Form1_tableLayoutPanel = new TableLayoutPanel();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tablePage1_tableLayoutPanel = new TableLayoutPanel();
@@ -56,7 +56,7 @@
             tabPage3_tableLayoutPanel = new TableLayoutPanel();
             label4 = new Label();
             statusStrip1.SuspendLayout();
-            mainForm_tableLayoutPanel.SuspendLayout();
+            Form1_tableLayoutPanel.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tablePage1_tableLayoutPanel.SuspendLayout();
@@ -86,19 +86,19 @@
             toolStripStatusLabel1.Text = "提示:";
             toolStripStatusLabel1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // mainForm_tableLayoutPanel
+            // Form1_tableLayoutPanel
             // 
-            mainForm_tableLayoutPanel.ColumnCount = 1;
-            mainForm_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            mainForm_tableLayoutPanel.Controls.Add(tabControl1, 0, 0);
-            mainForm_tableLayoutPanel.Dock = DockStyle.Fill;
-            mainForm_tableLayoutPanel.Location = new Point(3, 3);
-            mainForm_tableLayoutPanel.Name = "mainForm_tableLayoutPanel";
-            mainForm_tableLayoutPanel.RowCount = 2;
-            mainForm_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            mainForm_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            mainForm_tableLayoutPanel.Size = new Size(498, 255);
-            mainForm_tableLayoutPanel.TabIndex = 16;
+            Form1_tableLayoutPanel.ColumnCount = 1;
+            Form1_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            Form1_tableLayoutPanel.Controls.Add(tabControl1, 0, 0);
+            Form1_tableLayoutPanel.Dock = DockStyle.Fill;
+            Form1_tableLayoutPanel.Location = new Point(3, 3);
+            Form1_tableLayoutPanel.Name = "Form1_tableLayoutPanel";
+            Form1_tableLayoutPanel.RowCount = 2;
+            Form1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            Form1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            Form1_tableLayoutPanel.Size = new Size(498, 255);
+            Form1_tableLayoutPanel.TabIndex = 16;
             // 
             // tabControl1
             // 
@@ -119,7 +119,6 @@
             tabPage1.Controls.Add(tablePage1_tableLayoutPanel);
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(484, 199);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "图片处理";
@@ -131,23 +130,22 @@
             tablePage1_tableLayoutPanel.Controls.Add(groupBox1, 0, 0);
             tablePage1_tableLayoutPanel.Controls.Add(groupBox2, 0, 1);
             tablePage1_tableLayoutPanel.Dock = DockStyle.Fill;
-            tablePage1_tableLayoutPanel.Location = new Point(3, 3);
+            tablePage1_tableLayoutPanel.Location = new Point(0, 0);
             tablePage1_tableLayoutPanel.Name = "tablePage1_tableLayoutPanel";
             tablePage1_tableLayoutPanel.RowCount = 3;
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 112F));
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 86F));
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tablePage1_tableLayoutPanel.Size = new Size(478, 193);
+            tablePage1_tableLayoutPanel.Size = new Size(484, 199);
             tablePage1_tableLayoutPanel.TabIndex = 3;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(groupBox1_tableLayoutPanel);
             groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(2, 2);
-            groupBox1.Margin = new Padding(2);
+            groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(474, 108);
+            groupBox1.Size = new Size(478, 106);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "目标选择";
@@ -172,18 +170,18 @@
             groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33333F));
             groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33334F));
             groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33334F));
-            groupBox1_tableLayoutPanel.Size = new Size(468, 86);
+            groupBox1_tableLayoutPanel.Size = new Size(472, 84);
             groupBox1_tableLayoutPanel.TabIndex = 0;
             // 
             // textBox3
             // 
             textBox3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBox3.BackColor = SystemColors.Window;
-            textBox3.Location = new Point(80, 59);
+            textBox3.Location = new Point(80, 58);
             textBox3.Margin = new Padding(0);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(386, 23);
+            textBox3.Size = new Size(390, 23);
             textBox3.TabIndex = 5;
             textBox3.TabStop = false;
             // 
@@ -191,11 +189,11 @@
             // 
             textBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBox2.BackColor = SystemColors.Window;
-            textBox2.Location = new Point(80, 30);
+            textBox2.Location = new Point(80, 29);
             textBox2.Margin = new Padding(0);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(386, 23);
+            textBox2.Size = new Size(390, 23);
             textBox2.TabIndex = 4;
             textBox2.TabStop = false;
             // 
@@ -207,7 +205,7 @@
             textBox1.Margin = new Padding(0);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(386, 23);
+            textBox1.Size = new Size(390, 23);
             textBox1.TabIndex = 3;
             textBox1.TabStop = false;
             // 
@@ -217,7 +215,7 @@
             label1.Location = new Point(0, 0);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Size = new Size(80, 28);
+            label1.Size = new Size(80, 27);
             label1.TabIndex = 0;
             label1.Text = "文件夹路径：";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -225,7 +223,7 @@
             // label2
             // 
             label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(0, 28);
+            label2.Location = new Point(0, 27);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
             label2.Size = new Size(80, 28);
@@ -236,10 +234,10 @@
             // label3
             // 
             label3.Dock = DockStyle.Fill;
-            label3.Location = new Point(0, 56);
+            label3.Location = new Point(0, 55);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
-            label3.Size = new Size(80, 30);
+            label3.Size = new Size(80, 29);
             label3.TabIndex = 2;
             label3.Text = "目标文件名：";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -248,10 +246,9 @@
             // 
             groupBox2.Controls.Add(groupBox2_tableLayoutPanel);
             groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Location = new Point(2, 114);
-            groupBox2.Margin = new Padding(2);
+            groupBox2.Location = new Point(3, 115);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(474, 82);
+            groupBox2.Size = new Size(478, 80);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "操作选项";
@@ -273,22 +270,21 @@
             groupBox2_tableLayoutPanel.Controls.Add(checkBox1, 3, 0);
             groupBox2_tableLayoutPanel.Dock = DockStyle.Fill;
             groupBox2_tableLayoutPanel.Location = new Point(3, 19);
-            groupBox2_tableLayoutPanel.Margin = new Padding(4);
             groupBox2_tableLayoutPanel.Name = "groupBox2_tableLayoutPanel";
             groupBox2_tableLayoutPanel.RowCount = 2;
             groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            groupBox2_tableLayoutPanel.Size = new Size(468, 60);
+            groupBox2_tableLayoutPanel.Size = new Size(472, 58);
             groupBox2_tableLayoutPanel.TabIndex = 1;
             // 
             // button3
             // 
             button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button3.AutoSize = true;
-            button3.Location = new Point(235, 1);
+            button3.Location = new Point(237, 1);
             button3.Margin = new Padding(1);
             button3.Name = "button3";
-            button3.Size = new Size(115, 27);
+            button3.Size = new Size(116, 27);
             button3.TabIndex = 2;
             button3.Text = "打开备份文件夹";
             button3.UseVisualStyleBackColor = true;
@@ -298,10 +294,10 @@
             // 
             button2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button2.AutoSize = true;
-            button2.Location = new Point(118, 1);
+            button2.Location = new Point(119, 1);
             button2.Margin = new Padding(1);
             button2.Name = "button2";
-            button2.Size = new Size(115, 27);
+            button2.Size = new Size(116, 27);
             button2.TabIndex = 1;
             button2.Text = "查看重命名预览";
             button2.UseVisualStyleBackColor = true;
@@ -314,7 +310,7 @@
             button1.Location = new Point(1, 1);
             button1.Margin = new Padding(1);
             button1.Name = "button1";
-            button1.Size = new Size(115, 27);
+            button1.Size = new Size(116, 27);
             button1.TabIndex = 0;
             button1.Text = "执行重命名";
             button1.UseVisualStyleBackColor = true;
@@ -325,10 +321,10 @@
             button4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button4.AutoSize = true;
             button4.Enabled = false;
-            button4.Location = new Point(1, 31);
+            button4.Location = new Point(1, 30);
             button4.Margin = new Padding(1);
             button4.Name = "button4";
-            button4.Size = new Size(115, 27);
+            button4.Size = new Size(116, 27);
             button4.TabIndex = 3;
             button4.Text = "填充600帧";
             button4.UseVisualStyleBackColor = true;
@@ -339,10 +335,10 @@
             button5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button5.AutoSize = true;
             button5.Enabled = false;
-            button5.Location = new Point(118, 31);
+            button5.Location = new Point(119, 30);
             button5.Margin = new Padding(1);
             button5.Name = "button5";
-            button5.Size = new Size(115, 27);
+            button5.Size = new Size(116, 27);
             button5.TabIndex = 4;
             button5.Text = "填充360帧";
             button5.UseVisualStyleBackColor = true;
@@ -353,10 +349,10 @@
             button6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button6.AutoSize = true;
             button6.Enabled = false;
-            button6.Location = new Point(235, 31);
+            button6.Location = new Point(237, 30);
             button6.Margin = new Padding(1);
             button6.Name = "button6";
-            button6.Size = new Size(115, 27);
+            button6.Size = new Size(116, 27);
             button6.TabIndex = 5;
             button6.Text = "提取子文件夹图片";
             button6.UseVisualStyleBackColor = true;
@@ -367,10 +363,10 @@
             button7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button7.AutoSize = true;
             button7.Enabled = false;
-            button7.Location = new Point(352, 31);
+            button7.Location = new Point(355, 30);
             button7.Margin = new Padding(1);
             button7.Name = "button7";
-            button7.Size = new Size(115, 27);
+            button7.Size = new Size(116, 27);
             button7.TabIndex = 6;
             button7.Text = "删除子文件夹";
             button7.UseVisualStyleBackColor = true;
@@ -380,11 +376,11 @@
             // 
             checkBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(352, 4);
+            checkBox1.Location = new Point(355, 4);
             checkBox1.Margin = new Padding(1);
             checkBox1.Name = "checkBox1";
             checkBox1.Padding = new Padding(1, 0, 0, 0);
-            checkBox1.Size = new Size(115, 21);
+            checkBox1.Size = new Size(116, 21);
             checkBox1.TabIndex = 7;
             checkBox1.Text = "自动执行重命名";
             checkBox1.UseVisualStyleBackColor = true;
@@ -396,8 +392,7 @@
             tabPage2.Controls.Add(tablePage2_tableLayoutPanel);
             tabPage2.Location = new Point(4, 26);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(484, 199);
+            tabPage2.Size = new Size(484, 209);
             tabPage2.TabIndex = 2;
             tabPage2.Text = "软件更新";
             // 
@@ -409,13 +404,13 @@
             tablePage2_tableLayoutPanel.Controls.Add(label7, 0, 0);
             tablePage2_tableLayoutPanel.Controls.Add(linkLabel1, 0, 1);
             tablePage2_tableLayoutPanel.Dock = DockStyle.Fill;
-            tablePage2_tableLayoutPanel.Location = new Point(3, 3);
+            tablePage2_tableLayoutPanel.Location = new Point(0, 0);
             tablePage2_tableLayoutPanel.Name = "tablePage2_tableLayoutPanel";
             tablePage2_tableLayoutPanel.RowCount = 2;
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tablePage2_tableLayoutPanel.Size = new Size(478, 193);
+            tablePage2_tableLayoutPanel.Size = new Size(484, 209);
             tablePage2_tableLayoutPanel.TabIndex = 1;
             // 
             // label7
@@ -424,7 +419,7 @@
             label7.AutoSize = true;
             label7.Location = new Point(3, 0);
             label7.Name = "label7";
-            label7.Size = new Size(472, 153);
+            label7.Size = new Size(478, 153);
             label7.TabIndex = 0;
             label7.Text = "\r\n更新说明：\r\n\r\n目前该软件仅在github上提供镜像版本\r\n\r\n如果您有更多建议与需求\r\n\r\n请直接在github社区中向该项目发起issue\r\n\r\n";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -445,8 +440,7 @@
             tabPage3.Controls.Add(tabPage3_tableLayoutPanel);
             tabPage3.Location = new Point(4, 26);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(484, 199);
+            tabPage3.Size = new Size(484, 209);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "关于";
             // 
@@ -456,13 +450,13 @@
             tabPage3_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tabPage3_tableLayoutPanel.Controls.Add(label4, 0, 0);
             tabPage3_tableLayoutPanel.Dock = DockStyle.Fill;
-            tabPage3_tableLayoutPanel.Location = new Point(3, 3);
+            tabPage3_tableLayoutPanel.Location = new Point(0, 0);
             tabPage3_tableLayoutPanel.Name = "tabPage3_tableLayoutPanel";
             tabPage3_tableLayoutPanel.RowCount = 2;
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tabPage3_tableLayoutPanel.Size = new Size(478, 193);
+            tabPage3_tableLayoutPanel.Size = new Size(484, 209);
             tabPage3_tableLayoutPanel.TabIndex = 0;
             // 
             // label4
@@ -471,7 +465,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(472, 170);
+            label4.Size = new Size(478, 170);
             label4.TabIndex = 0;
             label4.Text = "\r\n该软件主要作用于序列帧图片文件相关的整理与修改\r\n\r\n并且提供了数项方便快捷的功能\r\n\r\n使得我们在日常工作中可以免去繁琐的手动整理图片文件的痛苦\r\n\r\n更加专注于我们本身的工作\r\n\r\n至此！";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -483,9 +477,8 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(504, 261);
             Controls.Add(statusStrip1);
-            Controls.Add(mainForm_tableLayoutPanel);
+            Controls.Add(Form1_tableLayoutPanel);
             Font = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MaximizeBox = false;
@@ -498,7 +491,7 @@
             DragEnter += Form1_DragEnter;
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
-            mainForm_tableLayoutPanel.ResumeLayout(false);
+            Form1_tableLayoutPanel.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tablePage1_tableLayoutPanel.ResumeLayout(false);
@@ -522,7 +515,7 @@
 
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
-        private TableLayoutPanel mainForm_tableLayoutPanel;
+        private TableLayoutPanel Form1_tableLayoutPanel;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TableLayoutPanel tablePage1_tableLayoutPanel;

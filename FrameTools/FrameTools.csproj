@@ -22,6 +22,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <AdditionalFiles Remove="app.manifest" />
+        <AdditionalFiles Remove="app1.manifest" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Content Include="icon.ico" />
     </ItemGroup>
 

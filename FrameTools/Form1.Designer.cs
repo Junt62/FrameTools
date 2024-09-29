@@ -392,7 +392,7 @@
             tabPage2.Controls.Add(tablePage2_tableLayoutPanel);
             tabPage2.Location = new Point(4, 26);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(484, 209);
+            tabPage2.Size = new Size(484, 199);
             tabPage2.TabIndex = 2;
             tabPage2.Text = "软件更新";
             // 
@@ -410,7 +410,7 @@
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tablePage2_tableLayoutPanel.Size = new Size(484, 209);
+            tablePage2_tableLayoutPanel.Size = new Size(484, 199);
             tablePage2_tableLayoutPanel.TabIndex = 1;
             // 
             // label7
@@ -440,7 +440,7 @@
             tabPage3.Controls.Add(tabPage3_tableLayoutPanel);
             tabPage3.Location = new Point(4, 26);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(484, 209);
+            tabPage3.Size = new Size(484, 199);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "关于";
             // 
@@ -456,7 +456,7 @@
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tabPage3_tableLayoutPanel.Size = new Size(484, 209);
+            tabPage3_tableLayoutPanel.Size = new Size(484, 199);
             tabPage3_tableLayoutPanel.TabIndex = 0;
             // 
             // label4

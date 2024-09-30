@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.DataFormats;
@@ -19,14 +20,16 @@ namespace FrameTools {
 
         public string path = "";
         public string folder = "";
-        public string backupFolderPath = "";
+        public string backupPath = "";
         public List<string> images = [];
         public List<string> imagesNew = [];
         public List<string> imagesPreview = [];
 
         public readonly string BACKUPFOLDERNAME = "备份文件夹";
-        public readonly string BACKUPFOLDERSUFFIX = "_备份";
+        public readonly string BACKUPFOLDERSUFFIX = "备份";
+        public readonly string EMPTYIMAGESFOLDERNAME = "empty_images";
         public readonly string[] EXTENSIONS = ["*.png", "*.jpg", "*.jpeg", "*.bmp"];
+        public readonly string[] EXTENSIONS2 = [".png", ".jpg", ".jpeg", ".bmp"];
 
         public ToolStripStatusLabel Tint => toolStripStatusLabel1;
 
@@ -35,7 +38,7 @@ namespace FrameTools {
 
             Text = Assembly.GetExecutingAssembly().GetName().Name;
 
-            backupFolderPath = Path.Combine(Directory.GetCurrentDirectory(), BACKUPFOLDERNAME);
+            backupPath = Path.Combine(Directory.GetCurrentDirectory(), BACKUPFOLDERNAME);
 
             utils = new Utils(this);
 
@@ -77,21 +80,27 @@ namespace FrameTools {
         }
 
         private void UpdateTextBox() {
-            textBox1.Text = path;
+            if (path != "") {
+                textBox1.Text = path;
 
-            images = [];
-            images = utils.FindImages();
-            textBox2.Text = ($"\"{String.Join("\", \"", images)}\"");
+                images = [];
+                images = utils.FindImages();
+                textBox2.Text = ($"\"{String.Join("\", \"", images)}\"");
 
-            imagesNew = [];
-            imagesPreview = [];
-            for (int i = 0; i < images.Count; i++) {
-                string extension = Path.GetExtension(images[i]);
-                string newName = $"{folder}{(i).ToString().PadLeft(3, '0')}{extension}";
-                imagesPreview.Add($"{images[i]}  ->  {newName}");
-                imagesNew.Add(newName);
+                imagesNew = [];
+                imagesPreview = [];
+                for (int i = 0; i < images.Count; i++) {
+                    string extension = Path.GetExtension(images[i]);
+
+                    string newName = $"{folder}{(i).ToString().PadLeft(3, '0')}{extension}";
+
+                    imagesNew.Add(newName);
+
+                    imagesPreview.Add($"{images[i]}  ->  {newName}");
+                }
+
+                textBox3.Text = ($"\"{String.Join("\", \"", imagesNew)}\"");
             }
-            textBox3.Text = ($"\"{String.Join("\", \"", imagesNew)}\"");
         }
 
         private void Button1_Click(object sender, EventArgs e) {
@@ -112,35 +121,20 @@ namespace FrameTools {
                 utils.Tint("无重命名预览");
             }
             else {
+                UpdateTextBox();
+
+                utils.ShowDialog("预览", imagesPreview);
+
                 utils.Tint("查看重命名预览");
-                Form form = new() {
-                    Text = "预览",
-                    Width = 300,
-                    Height = 400,
-                    Owner = this,
-                    FormBorderStyle = FormBorderStyle.FixedToolWindow,
-                    StartPosition = FormStartPosition.CenterParent
-                };
-                TextBox textBox = new() {
-                    ReadOnly = true,
-                    Multiline = true,
-                    Dock = DockStyle.Fill,
-                    BackColor = Color.White,
-                    ScrollBars = ScrollBars.Vertical,
-                    Text = $"{String.Join(Environment.NewLine, imagesPreview)}",
-                };
-                form.Controls.Add(textBox);
-                form.Shown += (sender, e) => textBox.SelectionLength = 0;
-                form.ShowDialog();
             }
         }
 
         private void Button3_Click(object sender, EventArgs e) {
-            if (Directory.Exists(backupFolderPath)) {
-                var explorerProcesses = Process.GetProcessesByName("explorer").Where(p => p.MainWindowTitle.Contains(backupFolderPath));
+            if (Directory.Exists(backupPath)) {
+                var explorerProcesses = Process.GetProcessesByName("explorer").Where(p => p.MainWindowTitle.Contains(backupPath));
 
                 if (!explorerProcesses.Any()) {
-                    Process.Start("explorer.exe", backupFolderPath);
+                    Process.Start("explorer.exe", backupPath);
                 }
                 else {
                     var windowHandle = explorerProcesses.First().MainWindowHandle;
@@ -156,6 +150,10 @@ namespace FrameTools {
 
         private void Button4_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
+                utils.FillImages(600);
+
+                UpdateTextBox();
+
                 utils.Tint("填充600帧空白图片");
             }
             else {
@@ -165,6 +163,10 @@ namespace FrameTools {
 
         private void Button5_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
+                utils.FillImages(360);
+
+                UpdateTextBox();
+
                 utils.Tint("填充360帧空白图片");
             }
             else {
@@ -174,7 +176,16 @@ namespace FrameTools {
 
         private void Button6_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
-                utils.Tint("提取所有子文件夹图片");
+                if (Directory.GetDirectories(path).Length != 0) {
+                    utils.ExtractSubFolders();
+
+                    UpdateTextBox();
+
+                    utils.Tint("提取所有子文件夹图片");
+                }
+                else {
+                    utils.Tint("未找到子文件夹");
+                }
             }
             else {
                 utils.Tint("未设置目标路径！");
@@ -183,6 +194,8 @@ namespace FrameTools {
 
         private void Button7_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
+                utils.RemoveSubFolders();
+
                 utils.Tint("删除所有子文件夹");
             }
             else {
@@ -192,6 +205,8 @@ namespace FrameTools {
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e) {
             if (checkBox1.Checked) {
+                UpdateTextBox();
+
                 utils.Tint("启用自动执行");
             }
             else {
@@ -249,11 +264,21 @@ namespace FrameTools {
         }
 
         public void GenerateBackup() {
-            string path = Path.Combine(form1.backupFolderPath, form1.folder + form1.BACKUPFOLDERSUFFIX);
+            DateTime currentTime = DateTime.Now;
+            string formattedTime = currentTime.ToString("yyyy-MM-dd_HH-mm-ss");
+            string path = Path.Combine(form1.backupPath, $"{formattedTime}_{form1.folder}_{form1.BACKUPFOLDERSUFFIX}");
 
-            Directory.CreateDirectory(path);
+            List<string> dirs = new List<string>(Directory.GetDirectories(form1.backupPath, "*", SearchOption.TopDirectoryOnly));
+            while (dirs.Count >= 10) {
+                Directory.Delete(Directory.GetDirectories(form1.backupPath, "*", SearchOption.TopDirectoryOnly)[0], true);
+                dirs = new List<string>(Directory.GetDirectories(form1.backupPath, "*", SearchOption.TopDirectoryOnly));
+            }
 
-            CopyDirectory(form1.path, path);
+            if (!Path.Exists(path)) {
+                Directory.CreateDirectory(path);
+
+                CopyDirectory(form1.path, path);
+            }
 
             static void CopyDirectory(string sourceDir, string destinationDir) {
                 Directory.CreateDirectory(destinationDir);
@@ -266,7 +291,7 @@ namespace FrameTools {
 
                 foreach (string directory in Directory.GetDirectories(sourceDir)) {
                     string dirName = Path.GetFileName(directory);
-                    if (dirName != "备份文件夹") {
+                    if (!dirName.Contains("备份文件夹")) {
                         string destDir = Path.Combine(destinationDir, dirName);
                         CopyDirectory(directory, destDir);
                     }
@@ -274,25 +299,157 @@ namespace FrameTools {
             }
         }
 
-        public void GenerateEmptyImages(string[] images) {
+        public void GenerateEmptyImages(int count) {
+            string path = Path.Combine(form1.backupPath, form1.EMPTYIMAGESFOLDERNAME);
+            string name = Path.GetFileNameWithoutExtension(form1.images[0]).ToLower();
+            string extension = Path.GetExtension(form1.images[0]).ToLower();
+            string emptyImage;
+            int startNumber;
 
+            if (!Path.Exists(path)) {
+                Directory.CreateDirectory(path);
+            }
+            else {
+                Directory.Delete(path, true);
+                Directory.CreateDirectory(path);
+            }
+
+            Match match = Regex.Match(name, @"^(.*?)(\d+)$");
+            if (match.Success) {
+                emptyImage = name + extension;
+                startNumber = int.Parse(match.Groups[2].Value[^3..]);
+            }
+            else {
+                emptyImage = "000" + extension;
+                startNumber = 0;
+            }
+
+            using (Bitmap bmp = new Bitmap(1, 1)) {
+                bmp.SetPixel(0, 0, Color.Transparent);
+                bmp.Save(Path.Combine(path, emptyImage));
+            }
+
+            for (int i = 1; i < count; i++) {
+                string index = name[..^3] + (startNumber + i).ToString().PadLeft(3, '0');
+                string oldName = Path.Combine(path, emptyImage);
+                string newName = match.Groups[1].Value + index + extension;
+                newName = Path.Combine(path, newName);
+                System.IO.File.Copy(oldName, newName, true);
+            }
         }
 
-        public void RemoveEmptyImages(string[] images) {
+        public void FillImages(int count) {
+            GenerateEmptyImages(count);
 
+            string path = Path.Combine(form1.backupPath, form1.EMPTYIMAGESFOLDERNAME);
+
+            if (Directory.Exists(path)) {
+                string[] files = Directory.GetFiles(path);
+
+                foreach (string file in files) {
+                    string name = Path.GetFileName(file);
+                    string target = Path.Combine(form1.path, name);
+
+                    if (!System.IO.File.Exists(target)) {
+                        System.IO.File.Copy(file, target);
+                    }
+                }
+            }
+
+            Directory.Delete(path, true);
         }
 
-        public void FillImages(string[] images) {
+        public void ExtractSubFolders() {
+            List<string> imagesPreview = [];
 
+            string[] files = Directory.GetFiles(form1.path);
+            foreach (string file in files) {
+                System.IO.File.Delete(file);
+            }
+
+            foreach (string dir in Directory.GetDirectories(form1.path, "*", SearchOption.AllDirectories)) {
+                foreach (string file in Directory.GetFiles(dir)) {
+                    string extension = Path.GetExtension(file).ToLower();
+
+                    if (Array.Exists(form1.EXTENSIONS2, ext => ext == extension)) {
+                        string destinationFile = Path.Combine(form1.path, Path.GetFileName(file));
+                        System.IO.File.Copy(file, destinationFile, true);
+                    }
+                }
+            }
         }
 
-        public void ExtractSubFolders(string[] images) {
-
+        public void RemoveSubFolders() {
+            string[] dirs = Directory.GetDirectories(form1.path);
+            foreach (string dir in dirs) {
+                Directory.Delete(dir, true);
+            }
         }
 
-        public void RemoveSubFolders(string[] images) {
-
+        public void ShowDialog(String Title, string message) {
+            Form form = new() {
+                Text = Title,
+                Width = 300,
+                Height = 400,
+                Owner = form1,
+                FormBorderStyle = FormBorderStyle.FixedToolWindow,
+                StartPosition = FormStartPosition.CenterParent
+            };
+            TextBox textBox = new() {
+                ReadOnly = true,
+                Multiline = true,
+                Dock = DockStyle.Fill,
+                BackColor = Color.White,
+                ScrollBars = ScrollBars.Vertical,
+                Text = $"{String.Join(Environment.NewLine, message)}",
+            };
+            form.Controls.Add(textBox);
+            form.Shown += (sender, e) => textBox.SelectionLength = 0;
+            form.ShowDialog();
         }
 
+        public void ShowDialog(String Title, string[] message) {
+            Form form = new() {
+                Text = Title,
+                Width = 300,
+                Height = 400,
+                Owner = form1,
+                FormBorderStyle = FormBorderStyle.FixedToolWindow,
+                StartPosition = FormStartPosition.CenterParent
+            };
+            TextBox textBox = new() {
+                ReadOnly = true,
+                Multiline = true,
+                Dock = DockStyle.Fill,
+                BackColor = Color.White,
+                ScrollBars = ScrollBars.Vertical,
+                Text = $"{String.Join(Environment.NewLine, message)}",
+            };
+            form.Controls.Add(textBox);
+            form.Shown += (sender, e) => textBox.SelectionLength = 0;
+            form.ShowDialog();
+        }
+
+        public void ShowDialog(String Title, List<string> message) {
+            Form form = new() {
+                Text = Title,
+                Width = 300,
+                Height = 400,
+                Owner = form1,
+                FormBorderStyle = FormBorderStyle.FixedToolWindow,
+                StartPosition = FormStartPosition.CenterParent
+            };
+            TextBox textBox = new() {
+                ReadOnly = true,
+                Multiline = true,
+                Dock = DockStyle.Fill,
+                BackColor = Color.White,
+                ScrollBars = ScrollBars.Vertical,
+                Text = $"{String.Join(Environment.NewLine, message)}",
+            };
+            form.Controls.Add(textBox);
+            form.Shown += (sender, e) => textBox.SelectionLength = 0;
+            form.ShowDialog();
+        }
     }
 }

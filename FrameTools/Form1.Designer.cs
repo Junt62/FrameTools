@@ -320,7 +320,6 @@
             // 
             button4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button4.AutoSize = true;
-            button4.Enabled = false;
             button4.Location = new Point(1, 30);
             button4.Margin = new Padding(1);
             button4.Name = "button4";
@@ -334,7 +333,6 @@
             // 
             button5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button5.AutoSize = true;
-            button5.Enabled = false;
             button5.Location = new Point(119, 30);
             button5.Margin = new Padding(1);
             button5.Name = "button5";
@@ -348,7 +346,6 @@
             // 
             button6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button6.AutoSize = true;
-            button6.Enabled = false;
             button6.Location = new Point(237, 30);
             button6.Margin = new Padding(1);
             button6.Name = "button6";
@@ -362,7 +359,6 @@
             // 
             button7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button7.AutoSize = true;
-            button7.Enabled = false;
             button7.Location = new Point(355, 30);
             button7.Margin = new Padding(1);
             button7.Name = "button7";

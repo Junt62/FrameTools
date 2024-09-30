@@ -429,6 +429,7 @@
             linkLabel1.TabIndex = 1;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "github";
+            linkLabel1.LinkClicked += LinkLabel1_LinkClicked;
             // 
             // tabPage3
             // 

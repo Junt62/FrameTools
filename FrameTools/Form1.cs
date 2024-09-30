@@ -214,6 +214,12 @@ namespace FrameTools {
             }
         }
 
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Process.Start(new ProcessStartInfo {
+                FileName = "https://github.com/Junt62",
+                UseShellExecute = true
+            });
+        }
     }
 
     public class Utils(Form1 form1) {

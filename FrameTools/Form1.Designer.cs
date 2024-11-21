@@ -32,22 +32,25 @@
             tablePage1_tableLayoutPanel = new TableLayoutPanel();
             groupBox1 = new GroupBox();
             groupBox1_tableLayoutPanel = new TableLayoutPanel();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
             textBox1 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
             groupBox2 = new GroupBox();
             groupBox2_tableLayoutPanel = new TableLayoutPanel();
-            button3 = new Button();
-            button2 = new Button();
+            textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            checkBox1 = new CheckBox();
             button1 = new Button();
+            button2 = new Button();
+            groupBox3 = new GroupBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            button7 = new Button();
+            button6 = new Button();
             button4 = new Button();
             button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            checkBox1 = new CheckBox();
+            groupBox4 = new GroupBox();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            button3 = new Button();
             tabPage2 = new TabPage();
             tablePage2_tableLayoutPanel = new TableLayoutPanel();
             label7 = new Label();
@@ -64,6 +67,10 @@
             groupBox1_tableLayoutPanel.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox2_tableLayoutPanel.SuspendLayout();
+            groupBox3.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            groupBox4.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             tabPage2.SuspendLayout();
             tablePage2_tableLayoutPanel.SuspendLayout();
             tabPage3.SuspendLayout();
@@ -73,7 +80,7 @@
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(3, 236);
+            statusStrip1.Location = new Point(3, 316);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(498, 22);
             statusStrip1.TabIndex = 15;
@@ -97,7 +104,7 @@
             Form1_tableLayoutPanel.RowCount = 2;
             Form1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             Form1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            Form1_tableLayoutPanel.Size = new Size(498, 255);
+            Form1_tableLayoutPanel.Size = new Size(498, 335);
             Form1_tableLayoutPanel.TabIndex = 16;
             // 
             // tabControl1
@@ -110,7 +117,7 @@
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(492, 229);
+            tabControl1.Size = new Size(492, 309);
             tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -119,7 +126,7 @@
             tabPage1.Controls.Add(tablePage1_tableLayoutPanel);
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
-            tabPage1.Size = new Size(484, 199);
+            tabPage1.Size = new Size(484, 279);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "图片处理";
             // 
@@ -129,129 +136,67 @@
             tablePage1_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tablePage1_tableLayoutPanel.Controls.Add(groupBox1, 0, 0);
             tablePage1_tableLayoutPanel.Controls.Add(groupBox2, 0, 1);
+            tablePage1_tableLayoutPanel.Controls.Add(groupBox3, 0, 2);
+            tablePage1_tableLayoutPanel.Controls.Add(groupBox4, 0, 3);
             tablePage1_tableLayoutPanel.Dock = DockStyle.Fill;
             tablePage1_tableLayoutPanel.Location = new Point(0, 0);
             tablePage1_tableLayoutPanel.Name = "tablePage1_tableLayoutPanel";
-            tablePage1_tableLayoutPanel.RowCount = 3;
-            tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 112F));
-            tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 86F));
+            tablePage1_tableLayoutPanel.RowCount = 6;
+            tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 110F));
+            tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
+            tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
+            tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tablePage1_tableLayoutPanel.Size = new Size(484, 199);
+            tablePage1_tableLayoutPanel.Size = new Size(484, 279);
             tablePage1_tableLayoutPanel.TabIndex = 3;
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(groupBox1_tableLayoutPanel);
-            groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(478, 106);
+            groupBox1.Size = new Size(478, 46);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "目标选择";
+            groupBox1.Text = "拖入文件夹设置目标路径：";
             // 
             // groupBox1_tableLayoutPanel
             // 
-            groupBox1_tableLayoutPanel.ColumnCount = 2;
-            groupBox1_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle());
+            groupBox1_tableLayoutPanel.ColumnCount = 1;
             groupBox1_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            groupBox1_tableLayoutPanel.Controls.Add(textBox3, 1, 2);
-            groupBox1_tableLayoutPanel.Controls.Add(textBox2, 1, 1);
-            groupBox1_tableLayoutPanel.Controls.Add(textBox1, 1, 0);
-            groupBox1_tableLayoutPanel.Controls.Add(label1, 0, 0);
-            groupBox1_tableLayoutPanel.Controls.Add(label2, 0, 1);
-            groupBox1_tableLayoutPanel.Controls.Add(label3, 0, 2);
+            groupBox1_tableLayoutPanel.Controls.Add(textBox1, 0, 0);
             groupBox1_tableLayoutPanel.Dock = DockStyle.Fill;
             groupBox1_tableLayoutPanel.Location = new Point(3, 19);
-            groupBox1_tableLayoutPanel.Margin = new Padding(0);
             groupBox1_tableLayoutPanel.Name = "groupBox1_tableLayoutPanel";
-            groupBox1_tableLayoutPanel.Padding = new Padding(0, 0, 2, 0);
-            groupBox1_tableLayoutPanel.RowCount = 3;
-            groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33333F));
-            groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33334F));
-            groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33334F));
-            groupBox1_tableLayoutPanel.Size = new Size(472, 84);
+            groupBox1_tableLayoutPanel.RowCount = 1;
+            groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle());
+            groupBox1_tableLayoutPanel.Size = new Size(472, 24);
             groupBox1_tableLayoutPanel.TabIndex = 0;
-            // 
-            // textBox3
-            // 
-            textBox3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.BackColor = SystemColors.Window;
-            textBox3.Location = new Point(80, 58);
-            textBox3.Margin = new Padding(0);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(390, 23);
-            textBox3.TabIndex = 5;
-            textBox3.TabStop = false;
-            // 
-            // textBox2
-            // 
-            textBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.BackColor = SystemColors.Window;
-            textBox2.Location = new Point(80, 29);
-            textBox2.Margin = new Padding(0);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(390, 23);
-            textBox2.TabIndex = 4;
-            textBox2.TabStop = false;
             // 
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBox1.BackColor = SystemColors.Window;
-            textBox1.Location = new Point(80, 2);
+            textBox1.Location = new Point(0, 0);
             textBox1.Margin = new Padding(0);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(390, 23);
+            textBox1.Size = new Size(472, 23);
             textBox1.TabIndex = 3;
             textBox1.TabStop = false;
             // 
-            // label1
-            // 
-            label1.Dock = DockStyle.Fill;
-            label1.Location = new Point(0, 0);
-            label1.Margin = new Padding(0);
-            label1.Name = "label1";
-            label1.Size = new Size(80, 27);
-            label1.TabIndex = 0;
-            label1.Text = "文件夹路径：";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(0, 27);
-            label2.Margin = new Padding(0);
-            label2.Name = "label2";
-            label2.Size = new Size(80, 28);
-            label2.TabIndex = 1;
-            label2.Text = "当前文件名：";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            label3.Dock = DockStyle.Fill;
-            label3.Location = new Point(0, 55);
-            label3.Margin = new Padding(0);
-            label3.Name = "label3";
-            label3.Size = new Size(80, 29);
-            label3.TabIndex = 2;
-            label3.Text = "目标文件名：";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(groupBox2_tableLayoutPanel);
-            groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Location = new Point(3, 115);
+            groupBox2.Location = new Point(3, 57);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(478, 80);
+            groupBox2.Size = new Size(478, 100);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "操作选项";
+            groupBox2.Text = "重命名操作";
             // 
             // groupBox2_tableLayoutPanel
             // 
@@ -260,72 +205,180 @@
             groupBox2_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             groupBox2_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             groupBox2_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            groupBox2_tableLayoutPanel.Controls.Add(button3, 2, 0);
-            groupBox2_tableLayoutPanel.Controls.Add(button2, 1, 0);
-            groupBox2_tableLayoutPanel.Controls.Add(button1, 0, 0);
-            groupBox2_tableLayoutPanel.Controls.Add(button4, 0, 1);
-            groupBox2_tableLayoutPanel.Controls.Add(button5, 1, 1);
-            groupBox2_tableLayoutPanel.Controls.Add(button6, 2, 1);
-            groupBox2_tableLayoutPanel.Controls.Add(button7, 3, 1);
-            groupBox2_tableLayoutPanel.Controls.Add(checkBox1, 3, 0);
+            groupBox2_tableLayoutPanel.Controls.Add(textBox3, 1, 1);
+            groupBox2_tableLayoutPanel.Controls.Add(textBox2, 1, 0);
+            groupBox2_tableLayoutPanel.Controls.Add(label2, 0, 0);
+            groupBox2_tableLayoutPanel.Controls.Add(label3, 0, 1);
+            groupBox2_tableLayoutPanel.Controls.Add(checkBox1, 2, 2);
+            groupBox2_tableLayoutPanel.Controls.Add(button1, 0, 2);
+            groupBox2_tableLayoutPanel.Controls.Add(button2, 1, 2);
             groupBox2_tableLayoutPanel.Dock = DockStyle.Fill;
             groupBox2_tableLayoutPanel.Location = new Point(3, 19);
             groupBox2_tableLayoutPanel.Name = "groupBox2_tableLayoutPanel";
-            groupBox2_tableLayoutPanel.RowCount = 2;
-            groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            groupBox2_tableLayoutPanel.Size = new Size(472, 58);
+            groupBox2_tableLayoutPanel.RowCount = 3;
+            groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33333F));
+            groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            groupBox2_tableLayoutPanel.Size = new Size(472, 78);
             groupBox2_tableLayoutPanel.TabIndex = 1;
             // 
-            // button3
+            // textBox3
             // 
-            button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button3.AutoSize = true;
-            button3.Location = new Point(237, 1);
-            button3.Margin = new Padding(1);
-            button3.Name = "button3";
-            button3.Size = new Size(116, 27);
-            button3.TabIndex = 2;
-            button3.Text = "打开备份文件夹";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += Button3_Click;
+            textBox3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox3.BackColor = SystemColors.Window;
+            groupBox2_tableLayoutPanel.SetColumnSpan(textBox3, 3);
+            textBox3.Location = new Point(120, 28);
+            textBox3.Margin = new Padding(2, 2, 0, 2);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(352, 23);
+            textBox3.TabIndex = 5;
+            textBox3.TabStop = false;
             // 
-            // button2
+            // textBox2
             // 
-            button2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button2.AutoSize = true;
-            button2.Location = new Point(119, 1);
-            button2.Margin = new Padding(1);
-            button2.Name = "button2";
-            button2.Size = new Size(116, 27);
-            button2.TabIndex = 1;
-            button2.Text = "查看重命名预览";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += Button2_Click;
+            textBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            textBox2.BackColor = SystemColors.Window;
+            groupBox2_tableLayoutPanel.SetColumnSpan(textBox2, 3);
+            textBox2.Location = new Point(120, 2);
+            textBox2.Margin = new Padding(2, 2, 0, 2);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(352, 23);
+            textBox2.TabIndex = 4;
+            textBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(0, 4);
+            label2.Margin = new Padding(0);
+            label2.Name = "label2";
+            label2.Size = new Size(118, 17);
+            label2.TabIndex = 1;
+            label2.Text = "当前文件名：";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(0, 30);
+            label3.Margin = new Padding(0);
+            label3.Name = "label3";
+            label3.Size = new Size(118, 17);
+            label3.TabIndex = 2;
+            label3.Text = "目标文件名：";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // checkBox1
+            // 
+            checkBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(237, 53);
+            checkBox1.Margin = new Padding(1);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Padding = new Padding(4, 2, 0, 0);
+            checkBox1.Size = new Size(116, 23);
+            checkBox1.TabIndex = 7;
+            checkBox1.Text = "自动执行重命名";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += CheckBox1_CheckedChanged;
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button1.AutoSize = true;
-            button1.Location = new Point(1, 1);
+            button1.Location = new Point(1, 53);
             button1.Margin = new Padding(1);
             button1.Name = "button1";
-            button1.Size = new Size(116, 27);
+            button1.Size = new Size(116, 24);
             button1.TabIndex = 0;
-            button1.Text = "执行重命名";
+            button1.Text = "执行图片重命名";
             button1.UseVisualStyleBackColor = true;
             button1.Click += Button1_Click;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            button2.AutoSize = true;
+            button2.Location = new Point(119, 53);
+            button2.Margin = new Padding(1);
+            button2.Name = "button2";
+            button2.Size = new Size(116, 24);
+            button2.TabIndex = 1;
+            button2.Text = "查看重命名预览";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += Button2_Click;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            groupBox3.Controls.Add(tableLayoutPanel1);
+            groupBox3.Location = new Point(3, 165);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(478, 50);
+            groupBox3.TabIndex = 2;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "图片操作";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.Controls.Add(button7, 3, 0);
+            tableLayoutPanel1.Controls.Add(button6, 2, 0);
+            tableLayoutPanel1.Controls.Add(button4, 0, 0);
+            tableLayoutPanel1.Controls.Add(button5, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(3, 19);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(472, 28);
+            tableLayoutPanel1.TabIndex = 1;
+            // 
+            // button7
+            // 
+            button7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            button7.AutoSize = true;
+            button7.Location = new Point(355, 1);
+            button7.Margin = new Padding(1);
+            button7.Name = "button7";
+            button7.Size = new Size(116, 26);
+            button7.TabIndex = 6;
+            button7.Text = "删除子文件夹";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += Button7_Click;
+            // 
+            // button6
+            // 
+            button6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            button6.AutoSize = true;
+            button6.Location = new Point(237, 1);
+            button6.Margin = new Padding(1);
+            button6.Name = "button6";
+            button6.Size = new Size(116, 26);
+            button6.TabIndex = 5;
+            button6.Text = "提取子文件夹图片";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += Button6_Click;
             // 
             // button4
             // 
             button4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button4.AutoSize = true;
-            button4.Location = new Point(1, 30);
+            button4.Location = new Point(1, 1);
             button4.Margin = new Padding(1);
             button4.Name = "button4";
-            button4.Size = new Size(116, 27);
+            button4.Size = new Size(116, 26);
             button4.TabIndex = 3;
-            button4.Text = "填充600帧";
+            button4.Text = "填充600帧图片";
             button4.UseVisualStyleBackColor = true;
             button4.Click += Button4_Click;
             // 
@@ -333,54 +386,55 @@
             // 
             button5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button5.AutoSize = true;
-            button5.Location = new Point(119, 30);
+            button5.Location = new Point(119, 1);
             button5.Margin = new Padding(1);
             button5.Name = "button5";
-            button5.Size = new Size(116, 27);
+            button5.Size = new Size(116, 26);
             button5.TabIndex = 4;
-            button5.Text = "填充360帧";
+            button5.Text = "填充360帧图片";
             button5.UseVisualStyleBackColor = true;
             button5.Click += Button5_Click;
             // 
-            // button6
+            // groupBox4
             // 
-            button6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button6.AutoSize = true;
-            button6.Location = new Point(237, 30);
-            button6.Margin = new Padding(1);
-            button6.Name = "button6";
-            button6.Size = new Size(116, 27);
-            button6.TabIndex = 5;
-            button6.Text = "提取子文件夹图片";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += Button6_Click;
+            groupBox4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            groupBox4.Controls.Add(tableLayoutPanel3);
+            groupBox4.Location = new Point(3, 221);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(478, 50);
+            groupBox4.TabIndex = 4;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "备份";
             // 
-            // button7
+            // tableLayoutPanel3
             // 
-            button7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button7.AutoSize = true;
-            button7.Location = new Point(355, 30);
-            button7.Margin = new Padding(1);
-            button7.Name = "button7";
-            button7.Size = new Size(116, 27);
-            button7.TabIndex = 6;
-            button7.Text = "删除子文件夹";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += Button7_Click;
+            tableLayoutPanel3.ColumnCount = 4;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel3.Controls.Add(button3, 0, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(3, 19);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Size = new Size(472, 28);
+            tableLayoutPanel3.TabIndex = 1;
             // 
-            // checkBox1
+            // button3
             // 
-            checkBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(355, 4);
-            checkBox1.Margin = new Padding(1);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Padding = new Padding(1, 0, 0, 0);
-            checkBox1.Size = new Size(116, 21);
-            checkBox1.TabIndex = 7;
-            checkBox1.Text = "自动执行重命名";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += CheckBox1_CheckedChanged;
+            button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            button3.AutoSize = true;
+            button3.Location = new Point(1, 1);
+            button3.Margin = new Padding(1);
+            button3.Name = "button3";
+            button3.Size = new Size(116, 26);
+            button3.TabIndex = 2;
+            button3.Text = "打开备份文件夹";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += Button3_Click;
             // 
             // tabPage2
             // 
@@ -388,7 +442,7 @@
             tabPage2.Controls.Add(tablePage2_tableLayoutPanel);
             tabPage2.Location = new Point(4, 26);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(484, 199);
+            tabPage2.Size = new Size(484, 279);
             tabPage2.TabIndex = 2;
             tabPage2.Text = "软件更新";
             // 
@@ -406,7 +460,7 @@
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tablePage2_tableLayoutPanel.Size = new Size(484, 199);
+            tablePage2_tableLayoutPanel.Size = new Size(484, 279);
             tablePage2_tableLayoutPanel.TabIndex = 1;
             // 
             // label7
@@ -437,7 +491,7 @@
             tabPage3.Controls.Add(tabPage3_tableLayoutPanel);
             tabPage3.Location = new Point(4, 26);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(484, 199);
+            tabPage3.Size = new Size(484, 279);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "关于";
             // 
@@ -453,7 +507,7 @@
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tabPage3_tableLayoutPanel.Size = new Size(484, 199);
+            tabPage3_tableLayoutPanel.Size = new Size(484, 279);
             tabPage3_tableLayoutPanel.TabIndex = 0;
             // 
             // label4
@@ -472,14 +526,14 @@
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(504, 261);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(504, 341);
             Controls.Add(statusStrip1);
             Controls.Add(Form1_tableLayoutPanel);
             Font = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MaximizeBox = false;
-            MinimumSize = new Size(520, 300);
             Name = "Form1";
             Padding = new Padding(3);
             StartPosition = FormStartPosition.CenterScreen;
@@ -498,6 +552,12 @@
             groupBox2.ResumeLayout(false);
             groupBox2_tableLayoutPanel.ResumeLayout(false);
             groupBox2_tableLayoutPanel.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             tabPage2.ResumeLayout(false);
             tablePage2_tableLayoutPanel.ResumeLayout(false);
             tablePage2_tableLayoutPanel.PerformLayout();
@@ -521,7 +581,6 @@
         private TextBox textBox3;
         private TextBox textBox2;
         private TextBox textBox1;
-        private Label label1;
         private Label label2;
         private Label label3;
         private GroupBox groupBox2;
@@ -541,5 +600,10 @@
         private TabPage tabPage3;
         private TableLayoutPanel tabPage3_tableLayoutPanel;
         private Label label4;
+        private GroupBox groupBox3;
+        private TableLayoutPanel tableLayoutPanel1;
+        private GroupBox groupBox4;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel tableLayoutPanel3;
     }
 }

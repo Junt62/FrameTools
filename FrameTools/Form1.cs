@@ -207,10 +207,10 @@ namespace FrameTools {
             if (checkBox1.Checked) {
                 UpdateTextBox();
 
-                utils.Tint("启用自动执行");
+                utils.Tint("启用自动执行重命名");
             }
             else {
-                utils.Tint("禁用自动执行");
+                utils.Tint("禁用自动执行重命名");
             }
         }
 

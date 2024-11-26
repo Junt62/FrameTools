@@ -574,6 +574,7 @@
             Padding = new Padding(3);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "序列帧综合工具";
+            FormClosed += Form1_FormClosed;
             DragDrop += Form1_DragDrop;
             DragEnter += Form1_DragEnter;
             statusStrip1.ResumeLayout(false);

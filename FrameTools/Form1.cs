@@ -153,6 +153,11 @@ namespace FrameTools {
                 foreach (string dir in dirs) {
                     Directory.Delete(dir, true);
                 }
+
+                utils.Tint("已清空备份文件夹");
+            }
+            else {
+                utils.Tint("无备份文件夹");
             }
         }
 
@@ -230,8 +235,25 @@ namespace FrameTools {
         }
 
         private void checkBoxRemoveBackupFolderWhenClose_CheckedChanged(object sender, EventArgs e) {
-
+            if (checkBoxRemoveBackupFolderWhenClose.Checked) {
+                utils.Tint("启用关闭时清空备份文件夹");
+            }
+            else {
+                utils.Tint("禁用关闭时清空备份文件夹");
+            }
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
+            if (checkBoxRemoveBackupFolderWhenClose.Checked) {
+                if (Directory.Exists(backupPath)) {
+                    string[] dirs = Directory.GetDirectories(backupPath);
+                    foreach (string dir in dirs) {
+                        Directory.Delete(dir, true);
+                    }
+                }
+            }
+        }
+
     }
 
 }

@@ -39,18 +39,20 @@
             textBox2 = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            checkBox1 = new CheckBox();
-            button1 = new Button();
-            button2 = new Button();
+            checkBoxAutoRunPictureRename = new CheckBox();
+            buttonRunPictureRename = new Button();
+            buttonShowRenamePreview = new Button();
             groupBox3 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
-            button7 = new Button();
-            button6 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            buttonRemoveSubFolder = new Button();
+            buttonExtractSubFolder = new Button();
+            buttonFillPictures600 = new Button();
+            buttonFillPictures360 = new Button();
             groupBox4 = new GroupBox();
             tableLayoutPanel3 = new TableLayoutPanel();
-            button3 = new Button();
+            checkBoxRemoveBackupFolderWhenClose = new CheckBox();
+            buttonRemoveBackupFolder = new Button();
+            buttonOpenBackupFolder = new Button();
             tabPage2 = new TabPage();
             tablePage2_tableLayoutPanel = new TableLayoutPanel();
             label7 = new Label();
@@ -80,7 +82,7 @@
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(3, 316);
+            statusStrip1.Location = new Point(3, 368);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(498, 22);
             statusStrip1.TabIndex = 15;
@@ -104,7 +106,7 @@
             Form1_tableLayoutPanel.RowCount = 2;
             Form1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             Form1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            Form1_tableLayoutPanel.Size = new Size(498, 335);
+            Form1_tableLayoutPanel.Size = new Size(498, 387);
             Form1_tableLayoutPanel.TabIndex = 16;
             // 
             // tabControl1
@@ -113,11 +115,12 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(3, 3);
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(0);
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(492, 309);
+            tabControl1.Size = new Size(498, 367);
             tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -126,12 +129,13 @@
             tabPage1.Controls.Add(tablePage1_tableLayoutPanel);
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
-            tabPage1.Size = new Size(484, 279);
+            tabPage1.Size = new Size(490, 337);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "图片处理";
             // 
             // tablePage1_tableLayoutPanel
             // 
+            tablePage1_tableLayoutPanel.BackColor = Color.Transparent;
             tablePage1_tableLayoutPanel.ColumnCount = 1;
             tablePage1_tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tablePage1_tableLayoutPanel.Controls.Add(groupBox1, 0, 0);
@@ -148,7 +152,7 @@
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tablePage1_tableLayoutPanel.Size = new Size(484, 279);
+            tablePage1_tableLayoutPanel.Size = new Size(490, 337);
             tablePage1_tableLayoutPanel.TabIndex = 3;
             // 
             // groupBox1
@@ -157,7 +161,7 @@
             groupBox1.Controls.Add(groupBox1_tableLayoutPanel);
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(478, 46);
+            groupBox1.Size = new Size(484, 46);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "拖入文件夹设置目标路径：";
@@ -172,7 +176,7 @@
             groupBox1_tableLayoutPanel.Name = "groupBox1_tableLayoutPanel";
             groupBox1_tableLayoutPanel.RowCount = 1;
             groupBox1_tableLayoutPanel.RowStyles.Add(new RowStyle());
-            groupBox1_tableLayoutPanel.Size = new Size(472, 24);
+            groupBox1_tableLayoutPanel.Size = new Size(478, 24);
             groupBox1_tableLayoutPanel.TabIndex = 0;
             // 
             // textBox1
@@ -183,7 +187,7 @@
             textBox1.Margin = new Padding(0);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(472, 23);
+            textBox1.Size = new Size(478, 23);
             textBox1.TabIndex = 3;
             textBox1.TabStop = false;
             // 
@@ -193,7 +197,7 @@
             groupBox2.Controls.Add(groupBox2_tableLayoutPanel);
             groupBox2.Location = new Point(3, 57);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(478, 100);
+            groupBox2.Size = new Size(484, 100);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "重命名操作";
@@ -209,9 +213,9 @@
             groupBox2_tableLayoutPanel.Controls.Add(textBox2, 1, 0);
             groupBox2_tableLayoutPanel.Controls.Add(label2, 0, 0);
             groupBox2_tableLayoutPanel.Controls.Add(label3, 0, 1);
-            groupBox2_tableLayoutPanel.Controls.Add(checkBox1, 2, 2);
-            groupBox2_tableLayoutPanel.Controls.Add(button1, 0, 2);
-            groupBox2_tableLayoutPanel.Controls.Add(button2, 1, 2);
+            groupBox2_tableLayoutPanel.Controls.Add(checkBoxAutoRunPictureRename, 2, 2);
+            groupBox2_tableLayoutPanel.Controls.Add(buttonRunPictureRename, 0, 2);
+            groupBox2_tableLayoutPanel.Controls.Add(buttonShowRenamePreview, 1, 2);
             groupBox2_tableLayoutPanel.Dock = DockStyle.Fill;
             groupBox2_tableLayoutPanel.Location = new Point(3, 19);
             groupBox2_tableLayoutPanel.Name = "groupBox2_tableLayoutPanel";
@@ -219,7 +223,7 @@
             groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33333F));
             groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             groupBox2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            groupBox2_tableLayoutPanel.Size = new Size(472, 78);
+            groupBox2_tableLayoutPanel.Size = new Size(478, 78);
             groupBox2_tableLayoutPanel.TabIndex = 1;
             // 
             // textBox3
@@ -227,11 +231,11 @@
             textBox3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBox3.BackColor = SystemColors.Window;
             groupBox2_tableLayoutPanel.SetColumnSpan(textBox3, 3);
-            textBox3.Location = new Point(120, 28);
+            textBox3.Location = new Point(121, 28);
             textBox3.Margin = new Padding(2, 2, 0, 2);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(352, 23);
+            textBox3.Size = new Size(357, 23);
             textBox3.TabIndex = 5;
             textBox3.TabStop = false;
             // 
@@ -240,11 +244,11 @@
             textBox2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBox2.BackColor = SystemColors.Window;
             groupBox2_tableLayoutPanel.SetColumnSpan(textBox2, 3);
-            textBox2.Location = new Point(120, 2);
+            textBox2.Location = new Point(121, 2);
             textBox2.Margin = new Padding(2, 2, 0, 2);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(352, 23);
+            textBox2.Size = new Size(357, 23);
             textBox2.TabIndex = 4;
             textBox2.TabStop = false;
             // 
@@ -255,7 +259,7 @@
             label2.Location = new Point(0, 4);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
-            label2.Size = new Size(118, 17);
+            label2.Size = new Size(119, 17);
             label2.TabIndex = 1;
             label2.Text = "当前文件名：";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -267,50 +271,50 @@
             label3.Location = new Point(0, 30);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
-            label3.Size = new Size(118, 17);
+            label3.Size = new Size(119, 17);
             label3.TabIndex = 2;
             label3.Text = "目标文件名：";
             label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // checkBox1
+            // checkBoxAutoRunPictureRename
             // 
-            checkBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(237, 53);
-            checkBox1.Margin = new Padding(1);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Padding = new Padding(4, 2, 0, 0);
-            checkBox1.Size = new Size(116, 23);
-            checkBox1.TabIndex = 7;
-            checkBox1.Text = "自动执行重命名";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += CheckBox1_CheckedChanged;
+            checkBoxAutoRunPictureRename.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            checkBoxAutoRunPictureRename.AutoSize = true;
+            checkBoxAutoRunPictureRename.Location = new Point(239, 53);
+            checkBoxAutoRunPictureRename.Margin = new Padding(1);
+            checkBoxAutoRunPictureRename.Name = "checkBoxAutoRunPictureRename";
+            checkBoxAutoRunPictureRename.Padding = new Padding(4, 2, 0, 0);
+            checkBoxAutoRunPictureRename.Size = new Size(117, 23);
+            checkBoxAutoRunPictureRename.TabIndex = 7;
+            checkBoxAutoRunPictureRename.Text = "自动执行重命名";
+            checkBoxAutoRunPictureRename.UseVisualStyleBackColor = true;
+            checkBoxAutoRunPictureRename.CheckedChanged += CheckBoxAutoRunPictureRename_CheckedChanged;
             // 
-            // button1
+            // buttonRunPictureRename
             // 
-            button1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button1.AutoSize = true;
-            button1.Location = new Point(1, 53);
-            button1.Margin = new Padding(1);
-            button1.Name = "button1";
-            button1.Size = new Size(116, 24);
-            button1.TabIndex = 0;
-            button1.Text = "执行图片重命名";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += Button1_Click;
+            buttonRunPictureRename.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            buttonRunPictureRename.AutoSize = true;
+            buttonRunPictureRename.Location = new Point(1, 53);
+            buttonRunPictureRename.Margin = new Padding(1);
+            buttonRunPictureRename.Name = "buttonRunPictureRename";
+            buttonRunPictureRename.Size = new Size(117, 24);
+            buttonRunPictureRename.TabIndex = 0;
+            buttonRunPictureRename.Text = "执行图片重命名";
+            buttonRunPictureRename.UseVisualStyleBackColor = true;
+            buttonRunPictureRename.Click += ButtonRunPictureRename_Click;
             // 
-            // button2
+            // buttonShowRenamePreview
             // 
-            button2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button2.AutoSize = true;
-            button2.Location = new Point(119, 53);
-            button2.Margin = new Padding(1);
-            button2.Name = "button2";
-            button2.Size = new Size(116, 24);
-            button2.TabIndex = 1;
-            button2.Text = "查看重命名预览";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += Button2_Click;
+            buttonShowRenamePreview.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            buttonShowRenamePreview.AutoSize = true;
+            buttonShowRenamePreview.Location = new Point(120, 53);
+            buttonShowRenamePreview.Margin = new Padding(1);
+            buttonShowRenamePreview.Name = "buttonShowRenamePreview";
+            buttonShowRenamePreview.Size = new Size(117, 24);
+            buttonShowRenamePreview.TabIndex = 1;
+            buttonShowRenamePreview.Text = "查看重命名预览";
+            buttonShowRenamePreview.UseVisualStyleBackColor = true;
+            buttonShowRenamePreview.Click += ButtonShowPicturePreview_Click;
             // 
             // groupBox3
             // 
@@ -318,7 +322,7 @@
             groupBox3.Controls.Add(tableLayoutPanel1);
             groupBox3.Location = new Point(3, 165);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(478, 50);
+            groupBox3.Size = new Size(484, 50);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "图片操作";
@@ -331,69 +335,69 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Controls.Add(button7, 3, 0);
-            tableLayoutPanel1.Controls.Add(button6, 2, 0);
-            tableLayoutPanel1.Controls.Add(button4, 0, 0);
-            tableLayoutPanel1.Controls.Add(button5, 1, 0);
+            tableLayoutPanel1.Controls.Add(buttonRemoveSubFolder, 3, 0);
+            tableLayoutPanel1.Controls.Add(buttonExtractSubFolder, 2, 0);
+            tableLayoutPanel1.Controls.Add(buttonFillPictures600, 0, 0);
+            tableLayoutPanel1.Controls.Add(buttonFillPictures360, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(3, 19);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(472, 28);
+            tableLayoutPanel1.Size = new Size(478, 28);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // button7
+            // buttonRemoveSubFolder
             // 
-            button7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button7.AutoSize = true;
-            button7.Location = new Point(355, 1);
-            button7.Margin = new Padding(1);
-            button7.Name = "button7";
-            button7.Size = new Size(116, 26);
-            button7.TabIndex = 6;
-            button7.Text = "删除子文件夹";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += Button7_Click;
+            buttonRemoveSubFolder.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            buttonRemoveSubFolder.AutoSize = true;
+            buttonRemoveSubFolder.Location = new Point(358, 1);
+            buttonRemoveSubFolder.Margin = new Padding(1);
+            buttonRemoveSubFolder.Name = "buttonRemoveSubFolder";
+            buttonRemoveSubFolder.Size = new Size(119, 26);
+            buttonRemoveSubFolder.TabIndex = 6;
+            buttonRemoveSubFolder.Text = "删除子文件夹";
+            buttonRemoveSubFolder.UseVisualStyleBackColor = true;
+            buttonRemoveSubFolder.Click += ButtonRemoveSubFolder_Click;
             // 
-            // button6
+            // buttonExtractSubFolder
             // 
-            button6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button6.AutoSize = true;
-            button6.Location = new Point(237, 1);
-            button6.Margin = new Padding(1);
-            button6.Name = "button6";
-            button6.Size = new Size(116, 26);
-            button6.TabIndex = 5;
-            button6.Text = "提取子文件夹图片";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += Button6_Click;
+            buttonExtractSubFolder.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            buttonExtractSubFolder.AutoSize = true;
+            buttonExtractSubFolder.Location = new Point(239, 1);
+            buttonExtractSubFolder.Margin = new Padding(1);
+            buttonExtractSubFolder.Name = "buttonExtractSubFolder";
+            buttonExtractSubFolder.Size = new Size(117, 26);
+            buttonExtractSubFolder.TabIndex = 5;
+            buttonExtractSubFolder.Text = "提取子文件夹图片";
+            buttonExtractSubFolder.UseVisualStyleBackColor = true;
+            buttonExtractSubFolder.Click += ButtonExtractSubFolder_Click;
             // 
-            // button4
+            // buttonFillPictures600
             // 
-            button4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button4.AutoSize = true;
-            button4.Location = new Point(1, 1);
-            button4.Margin = new Padding(1);
-            button4.Name = "button4";
-            button4.Size = new Size(116, 26);
-            button4.TabIndex = 3;
-            button4.Text = "填充600帧图片";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += Button4_Click;
+            buttonFillPictures600.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            buttonFillPictures600.AutoSize = true;
+            buttonFillPictures600.Location = new Point(1, 1);
+            buttonFillPictures600.Margin = new Padding(1);
+            buttonFillPictures600.Name = "buttonFillPictures600";
+            buttonFillPictures600.Size = new Size(117, 26);
+            buttonFillPictures600.TabIndex = 3;
+            buttonFillPictures600.Text = "填充600帧图片";
+            buttonFillPictures600.UseVisualStyleBackColor = true;
+            buttonFillPictures600.Click += ButtonFillPictures600_Click;
             // 
-            // button5
+            // buttonFillPictures360
             // 
-            button5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button5.AutoSize = true;
-            button5.Location = new Point(119, 1);
-            button5.Margin = new Padding(1);
-            button5.Name = "button5";
-            button5.Size = new Size(116, 26);
-            button5.TabIndex = 4;
-            button5.Text = "填充360帧图片";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += Button5_Click;
+            buttonFillPictures360.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            buttonFillPictures360.AutoSize = true;
+            buttonFillPictures360.Location = new Point(120, 1);
+            buttonFillPictures360.Margin = new Padding(1);
+            buttonFillPictures360.Name = "buttonFillPictures360";
+            buttonFillPictures360.Size = new Size(117, 26);
+            buttonFillPictures360.TabIndex = 4;
+            buttonFillPictures360.Text = "填充360帧图片";
+            buttonFillPictures360.UseVisualStyleBackColor = true;
+            buttonFillPictures360.Click += ButtonFillPictures360_Click;
             // 
             // groupBox4
             // 
@@ -401,7 +405,7 @@
             groupBox4.Controls.Add(tableLayoutPanel3);
             groupBox4.Location = new Point(3, 221);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(478, 50);
+            groupBox4.Size = new Size(484, 50);
             groupBox4.TabIndex = 4;
             groupBox4.TabStop = false;
             groupBox4.Text = "备份";
@@ -414,27 +418,56 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.Controls.Add(button3, 0, 0);
+            tableLayoutPanel3.Controls.Add(checkBoxRemoveBackupFolderWhenClose, 2, 0);
+            tableLayoutPanel3.Controls.Add(buttonRemoveBackupFolder, 1, 0);
+            tableLayoutPanel3.Controls.Add(buttonOpenBackupFolder, 0, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(3, 19);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(472, 28);
+            tableLayoutPanel3.Size = new Size(478, 28);
             tableLayoutPanel3.TabIndex = 1;
             // 
-            // button3
+            // checkBoxRemoveBackupFolderWhenClose
             // 
-            button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button3.AutoSize = true;
-            button3.Location = new Point(1, 1);
-            button3.Margin = new Padding(1);
-            button3.Name = "button3";
-            button3.Size = new Size(116, 26);
-            button3.TabIndex = 2;
-            button3.Text = "打开备份文件夹";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += Button3_Click;
+            checkBoxRemoveBackupFolderWhenClose.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            checkBoxRemoveBackupFolderWhenClose.AutoSize = true;
+            checkBoxRemoveBackupFolderWhenClose.Location = new Point(239, 2);
+            checkBoxRemoveBackupFolderWhenClose.Margin = new Padding(1);
+            checkBoxRemoveBackupFolderWhenClose.Name = "checkBoxRemoveBackupFolderWhenClose";
+            checkBoxRemoveBackupFolderWhenClose.Padding = new Padding(4, 2, 0, 0);
+            checkBoxRemoveBackupFolderWhenClose.Size = new Size(117, 23);
+            checkBoxRemoveBackupFolderWhenClose.TabIndex = 8;
+            checkBoxRemoveBackupFolderWhenClose.Text = "关闭时清空备份";
+            checkBoxRemoveBackupFolderWhenClose.UseVisualStyleBackColor = true;
+            checkBoxRemoveBackupFolderWhenClose.CheckedChanged += checkBoxRemoveBackupFolderWhenClose_CheckedChanged;
+            // 
+            // buttonRemoveBackupFolder
+            // 
+            buttonRemoveBackupFolder.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            buttonRemoveBackupFolder.AutoSize = true;
+            buttonRemoveBackupFolder.Location = new Point(120, 1);
+            buttonRemoveBackupFolder.Margin = new Padding(1);
+            buttonRemoveBackupFolder.Name = "buttonRemoveBackupFolder";
+            buttonRemoveBackupFolder.Size = new Size(117, 26);
+            buttonRemoveBackupFolder.TabIndex = 3;
+            buttonRemoveBackupFolder.Text = "清除备份文件夹";
+            buttonRemoveBackupFolder.UseVisualStyleBackColor = true;
+            buttonRemoveBackupFolder.Click += ButtonRemoveBackupFolder_Click;
+            // 
+            // buttonOpenBackupFolder
+            // 
+            buttonOpenBackupFolder.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            buttonOpenBackupFolder.AutoSize = true;
+            buttonOpenBackupFolder.Location = new Point(1, 1);
+            buttonOpenBackupFolder.Margin = new Padding(1);
+            buttonOpenBackupFolder.Name = "buttonOpenBackupFolder";
+            buttonOpenBackupFolder.Size = new Size(117, 26);
+            buttonOpenBackupFolder.TabIndex = 2;
+            buttonOpenBackupFolder.Text = "打开备份文件夹";
+            buttonOpenBackupFolder.UseVisualStyleBackColor = true;
+            buttonOpenBackupFolder.Click += ButtonOpenBackupFolder_Click;
             // 
             // tabPage2
             // 
@@ -442,7 +475,7 @@
             tabPage2.Controls.Add(tablePage2_tableLayoutPanel);
             tabPage2.Location = new Point(4, 26);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(484, 279);
+            tabPage2.Size = new Size(490, 337);
             tabPage2.TabIndex = 2;
             tabPage2.Text = "软件更新";
             // 
@@ -460,24 +493,26 @@
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tablePage2_tableLayoutPanel.Size = new Size(484, 279);
+            tablePage2_tableLayoutPanel.Size = new Size(490, 337);
             tablePage2_tableLayoutPanel.TabIndex = 1;
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(3, 0);
+            label7.Location = new Point(6, 6);
+            label7.Margin = new Padding(6);
             label7.Name = "label7";
-            label7.Size = new Size(478, 153);
+            label7.Size = new Size(478, 119);
             label7.TabIndex = 0;
-            label7.Text = "\r\n更新说明：\r\n\r\n目前该软件仅在github上提供镜像版本\r\n\r\n如果您有更多建议与需求\r\n\r\n请直接在github社区中向该项目发起issue\r\n\r\n";
+            label7.Text = "更新说明：\r\n\r\n目前该软件仅在github上提供镜像版本\r\n\r\n如果您有更多建议与需求\r\n\r\n请直接在github社区中向该项目发起issue\r\n";
             label7.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(3, 153);
+            linkLabel1.Location = new Point(6, 137);
+            linkLabel1.Margin = new Padding(6);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(45, 17);
             linkLabel1.TabIndex = 1;
@@ -491,7 +526,7 @@
             tabPage3.Controls.Add(tabPage3_tableLayoutPanel);
             tabPage3.Location = new Point(4, 26);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(484, 279);
+            tabPage3.Size = new Size(490, 337);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "关于";
             // 
@@ -507,18 +542,19 @@
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tabPage3_tableLayoutPanel.Size = new Size(484, 279);
+            tabPage3_tableLayoutPanel.Size = new Size(490, 337);
             tabPage3_tableLayoutPanel.TabIndex = 0;
             // 
             // label4
             // 
             label4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(3, 0);
+            label4.Location = new Point(6, 6);
+            label4.Margin = new Padding(6);
             label4.Name = "label4";
-            label4.Size = new Size(478, 170);
+            label4.Size = new Size(478, 153);
             label4.TabIndex = 0;
-            label4.Text = "\r\n该软件主要作用于序列帧图片文件相关的整理与修改\r\n\r\n并且提供了数项方便快捷的功能\r\n\r\n使得我们在日常工作中可以免去繁琐的手动整理图片文件的痛苦\r\n\r\n更加专注于我们本身的工作\r\n\r\n至此！";
+            label4.Text = "该软件主要作用于序列帧图片文件相关的整理与修改\r\n\r\n并且提供了数项方便快捷的功能\r\n\r\n使得我们在日常工作中可以免去繁琐的手动整理图片文件的痛苦\r\n\r\n更加专注于我们本身的工作\r\n\r\n至此！";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // Form1
@@ -527,7 +563,7 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(504, 341);
+            ClientSize = new Size(504, 393);
             Controls.Add(statusStrip1);
             Controls.Add(Form1_tableLayoutPanel);
             Font = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
@@ -585,14 +621,14 @@
         private Label label3;
         private GroupBox groupBox2;
         private TableLayoutPanel groupBox2_tableLayoutPanel;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private CheckBox checkBox1;
+        private Button buttonOpenBackupFolder;
+        private Button buttonShowRenamePreview;
+        private Button buttonRunPictureRename;
+        private Button buttonFillPictures600;
+        private Button buttonFillPictures360;
+        private Button buttonExtractSubFolder;
+        private Button buttonRemoveSubFolder;
+        private CheckBox checkBoxAutoRunPictureRename;
         private TabPage tabPage2;
         private TableLayoutPanel tablePage2_tableLayoutPanel;
         private Label label7;
@@ -605,5 +641,7 @@
         private GroupBox groupBox4;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
+        private Button buttonRemoveBackupFolder;
+        private CheckBox checkBoxRemoveBackupFolderWhenClose;
     }
 }

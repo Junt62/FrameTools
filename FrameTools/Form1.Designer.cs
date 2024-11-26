@@ -82,7 +82,7 @@
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(3, 368);
+            statusStrip1.Location = new Point(3, 306);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(498, 22);
             statusStrip1.TabIndex = 15;
@@ -106,7 +106,7 @@
             Form1_tableLayoutPanel.RowCount = 2;
             Form1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             Form1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            Form1_tableLayoutPanel.Size = new Size(498, 387);
+            Form1_tableLayoutPanel.Size = new Size(498, 325);
             Form1_tableLayoutPanel.TabIndex = 16;
             // 
             // tabControl1
@@ -120,7 +120,7 @@
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(498, 367);
+            tabControl1.Size = new Size(498, 305);
             tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -129,7 +129,7 @@
             tabPage1.Controls.Add(tablePage1_tableLayoutPanel);
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
-            tabPage1.Size = new Size(490, 337);
+            tabPage1.Size = new Size(490, 275);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "图片处理";
             // 
@@ -152,7 +152,7 @@
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
             tablePage1_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tablePage1_tableLayoutPanel.Size = new Size(490, 337);
+            tablePage1_tableLayoutPanel.Size = new Size(490, 275);
             tablePage1_tableLayoutPanel.TabIndex = 3;
             // 
             // groupBox1
@@ -475,7 +475,7 @@
             tabPage2.Controls.Add(tablePage2_tableLayoutPanel);
             tabPage2.Location = new Point(4, 26);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(490, 337);
+            tabPage2.Size = new Size(490, 275);
             tabPage2.TabIndex = 2;
             tabPage2.Text = "软件更新";
             // 
@@ -493,7 +493,7 @@
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tablePage2_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tablePage2_tableLayoutPanel.Size = new Size(490, 337);
+            tablePage2_tableLayoutPanel.Size = new Size(490, 275);
             tablePage2_tableLayoutPanel.TabIndex = 1;
             // 
             // label7
@@ -526,7 +526,7 @@
             tabPage3.Controls.Add(tabPage3_tableLayoutPanel);
             tabPage3.Location = new Point(4, 26);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(490, 337);
+            tabPage3.Size = new Size(490, 275);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "关于";
             // 
@@ -542,7 +542,7 @@
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle());
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tabPage3_tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tabPage3_tableLayoutPanel.Size = new Size(490, 337);
+            tabPage3_tableLayoutPanel.Size = new Size(490, 275);
             tabPage3_tableLayoutPanel.TabIndex = 0;
             // 
             // label4
@@ -563,7 +563,7 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(504, 393);
+            ClientSize = new Size(504, 331);
             Controls.Add(statusStrip1);
             Controls.Add(Form1_tableLayoutPanel);
             Font = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);

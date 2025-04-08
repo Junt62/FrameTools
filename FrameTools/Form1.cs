@@ -163,6 +163,8 @@ namespace FrameTools {
 
         private void ButtonFillPictures600_Click(object sender, EventArgs e) {
             if (textBox1.Text != "") {
+                UpdateTextBox();
+
                 utils.FillImages(600);
 
                 UpdateTextBox();

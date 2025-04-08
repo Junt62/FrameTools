@@ -99,8 +99,7 @@ namespace FrameTools {
             string path = Path.Combine(form1.backupPath, form1.EMPTYIMAGESFOLDERNAME);
             string name = Path.GetFileNameWithoutExtension(form1.images[0]).ToLower();
             string extension = Path.GetExtension(form1.images[0]).ToLower();
-            string emptyImage;
-            int startNumber;
+
 
             if (!Path.Exists(path)) {
                 Directory.CreateDirectory(path);
@@ -111,9 +110,12 @@ namespace FrameTools {
             }
 
             Match match = Regex.Match(name, @"^(.*?)(\d+)$");
+            string emptyImage;
+            int startNumber;
+            int nameLength = match.Groups[2].Value.Length;
             if (match.Success) {
                 emptyImage = name + extension;
-                startNumber = int.Parse(match.Groups[2].Value[^3..]);
+                startNumber = int.Parse(match.Groups[2].Value[^nameLength..]);
             }
             else {
                 emptyImage = "000" + extension;
@@ -126,7 +128,7 @@ namespace FrameTools {
             }
 
             for (int i = 1; i < count; i++) {
-                string index = name[..^3] + (startNumber + i).ToString().PadLeft(3, '0');
+                string index = name[..^nameLength] + (startNumber + i).ToString().PadLeft(nameLength, '0');
                 string oldName = Path.Combine(path, emptyImage);
                 string newName = match.Groups[1].Value + index + extension;
                 newName = Path.Combine(path, newName);

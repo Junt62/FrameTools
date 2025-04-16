@@ -128,7 +128,7 @@ namespace FrameTools {
             }
 
             for (int i = 1; i < count; i++) {
-                string index = name[..^nameLength] + (startNumber + i).ToString().PadLeft(nameLength, '0');
+                string index = (startNumber + i).ToString().PadLeft(nameLength, '0');
                 string oldName = Path.Combine(path, emptyImage);
                 string newName = match.Groups[1].Value + index + extension;
                 newName = Path.Combine(path, newName);
